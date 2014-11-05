@@ -1,0 +1,479 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1A80D6F71A0A0197000B3E7A /* ViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A80D6F61A0A0197000B3E7A /* ViewController2.m */; };
+		1A9911281A09ABB1002A5090 /* airplane105.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A9911271A09ABB1002A5090 /* airplane105.png */; };
+		1A99112E1A09ABDE002A5090 /* open12.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A99112D1A09ABDE002A5090 /* open12.png */; };
+		1A9911301A09ABE9002A5090 /* rotate2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A99112F1A09ABE9002A5090 /* rotate2.png */; };
+		1A9911321A09ABFF002A5090 /* song.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A9911311A09ABFF002A5090 /* song.png */; };
+		1A9911341A09AC0A002A5090 /* tea.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A9911331A09AC0A002A5090 /* tea.png */; };
+		1A9911361A09AC16002A5090 /* document6.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A9911351A09AC16002A5090 /* document6.png */; };
+		1A9911381A09AC26002A5090 /* video71.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A9911371A09AC26002A5090 /* video71.png */; };
+		1A99113A1A09AC33002A5090 /* handshake1 (1).png in Resources */ = {isa = PBXBuildFile; fileRef = 1A9911391A09AC33002A5090 /* handshake1 (1).png */; };
+		1A99113C1A09AC4B002A5090 /* three60.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A99113B1A09AC4B002A5090 /* three60.png */; };
+		1A9911401A09E3F4002A5090 /* heart64.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A99113F1A09E3F4002A5090 /* heart64.png */; };
+		1A9911421A09E40C002A5090 /* information3 (1).png in Resources */ = {isa = PBXBuildFile; fileRef = 1A9911411A09E40C002A5090 /* information3 (1).png */; };
+		1AE7C2221A08A23E00563FD8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE7C2211A08A23E00563FD8 /* main.m */; };
+		1AE7C2251A08A23E00563FD8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE7C2241A08A23E00563FD8 /* AppDelegate.m */; };
+		1AE7C2281A08A23E00563FD8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE7C2271A08A23E00563FD8 /* ViewController.m */; };
+		1AE7C22B1A08A23E00563FD8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AE7C2291A08A23E00563FD8 /* Main.storyboard */; };
+		1AE7C22D1A08A23E00563FD8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1AE7C22C1A08A23E00563FD8 /* Images.xcassets */; };
+		1AE7C2301A08A23E00563FD8 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AE7C22E1A08A23E00563FD8 /* LaunchScreen.xib */; };
+		1AE7C23C1A08A23E00563FD8 /* Maya_ObjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE7C23B1A08A23E00563FD8 /* Maya_ObjectTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1AE7C2361A08A23E00563FD8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1AE7C2141A08A23E00563FD8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1AE7C21B1A08A23E00563FD8;
+			remoteInfo = "Maya Object";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1A80D6F51A0A0197000B3E7A /* ViewController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController2.h; sourceTree = "<group>"; };
+		1A80D6F61A0A0197000B3E7A /* ViewController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController2.m; sourceTree = "<group>"; };
+		1A9911271A09ABB1002A5090 /* airplane105.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = airplane105.png; path = ../../../../Desktop/airplane105.png; sourceTree = "<group>"; };
+		1A99112D1A09ABDE002A5090 /* open12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = open12.png; path = ../../../../Desktop/open12.png; sourceTree = "<group>"; };
+		1A99112F1A09ABE9002A5090 /* rotate2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rotate2.png; path = ../../../../Desktop/rotate2.png; sourceTree = "<group>"; };
+		1A9911311A09ABFF002A5090 /* song.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = song.png; path = ../../../../Desktop/song.png; sourceTree = "<group>"; };
+		1A9911331A09AC0A002A5090 /* tea.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tea.png; path = ../../../../Desktop/tea.png; sourceTree = "<group>"; };
+		1A9911351A09AC16002A5090 /* document6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = document6.png; path = ../../../../Desktop/document6.png; sourceTree = "<group>"; };
+		1A9911371A09AC26002A5090 /* video71.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = video71.png; path = ../../../../Desktop/video71.png; sourceTree = "<group>"; };
+		1A9911391A09AC33002A5090 /* handshake1 (1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "handshake1 (1).png"; path = "../../../../Desktop/handshake1 (1).png"; sourceTree = "<group>"; };
+		1A99113B1A09AC4B002A5090 /* three60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = three60.png; path = ../../../../Desktop/three60.png; sourceTree = "<group>"; };
+		1A99113F1A09E3F4002A5090 /* heart64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = heart64.png; path = ../../../../Downloads/heart64.png; sourceTree = "<group>"; };
+		1A9911411A09E40C002A5090 /* information3 (1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "information3 (1).png"; path = "../../../../Downloads/information3 (1).png"; sourceTree = "<group>"; };
+		1AE7C21C1A08A23E00563FD8 /* Maya Object.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Maya Object.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1AE7C2201A08A23E00563FD8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1AE7C2211A08A23E00563FD8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1AE7C2231A08A23E00563FD8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		1AE7C2241A08A23E00563FD8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		1AE7C2261A08A23E00563FD8 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		1AE7C2271A08A23E00563FD8 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		1AE7C22A1A08A23E00563FD8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1AE7C22C1A08A23E00563FD8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		1AE7C22F1A08A23E00563FD8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		1AE7C2351A08A23E00563FD8 /* Maya ObjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Maya ObjectTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1AE7C23A1A08A23E00563FD8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1AE7C23B1A08A23E00563FD8 /* Maya_ObjectTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Maya_ObjectTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1AE7C2191A08A23E00563FD8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1AE7C2321A08A23E00563FD8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1AE7C2131A08A23E00563FD8 = {
+			isa = PBXGroup;
+			children = (
+				1AE7C21E1A08A23E00563FD8 /* Maya Object */,
+				1AE7C2381A08A23E00563FD8 /* Maya ObjectTests */,
+				1AE7C21D1A08A23E00563FD8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1AE7C21D1A08A23E00563FD8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1AE7C21C1A08A23E00563FD8 /* Maya Object.app */,
+				1AE7C2351A08A23E00563FD8 /* Maya ObjectTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1AE7C21E1A08A23E00563FD8 /* Maya Object */ = {
+			isa = PBXGroup;
+			children = (
+				1AE7C2231A08A23E00563FD8 /* AppDelegate.h */,
+				1AE7C2241A08A23E00563FD8 /* AppDelegate.m */,
+				1AE7C2261A08A23E00563FD8 /* ViewController.h */,
+				1AE7C2271A08A23E00563FD8 /* ViewController.m */,
+				1AE7C2291A08A23E00563FD8 /* Main.storyboard */,
+				1A80D6F51A0A0197000B3E7A /* ViewController2.h */,
+				1A80D6F61A0A0197000B3E7A /* ViewController2.m */,
+				1AE7C22C1A08A23E00563FD8 /* Images.xcassets */,
+				1AE7C22E1A08A23E00563FD8 /* LaunchScreen.xib */,
+				1AE7C21F1A08A23E00563FD8 /* Supporting Files */,
+			);
+			path = "Maya Object";
+			sourceTree = "<group>";
+		};
+		1AE7C21F1A08A23E00563FD8 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1A9911411A09E40C002A5090 /* information3 (1).png */,
+				1A99113F1A09E3F4002A5090 /* heart64.png */,
+				1A99113B1A09AC4B002A5090 /* three60.png */,
+				1A9911391A09AC33002A5090 /* handshake1 (1).png */,
+				1A9911371A09AC26002A5090 /* video71.png */,
+				1A9911351A09AC16002A5090 /* document6.png */,
+				1A9911331A09AC0A002A5090 /* tea.png */,
+				1A9911311A09ABFF002A5090 /* song.png */,
+				1A99112F1A09ABE9002A5090 /* rotate2.png */,
+				1A99112D1A09ABDE002A5090 /* open12.png */,
+				1A9911271A09ABB1002A5090 /* airplane105.png */,
+				1AE7C2201A08A23E00563FD8 /* Info.plist */,
+				1AE7C2211A08A23E00563FD8 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1AE7C2381A08A23E00563FD8 /* Maya ObjectTests */ = {
+			isa = PBXGroup;
+			children = (
+				1AE7C23B1A08A23E00563FD8 /* Maya_ObjectTests.m */,
+				1AE7C2391A08A23E00563FD8 /* Supporting Files */,
+			);
+			path = "Maya ObjectTests";
+			sourceTree = "<group>";
+		};
+		1AE7C2391A08A23E00563FD8 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1AE7C23A1A08A23E00563FD8 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1AE7C21B1A08A23E00563FD8 /* Maya Object */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1AE7C23F1A08A23E00563FD8 /* Build configuration list for PBXNativeTarget "Maya Object" */;
+			buildPhases = (
+				1AE7C2181A08A23E00563FD8 /* Sources */,
+				1AE7C2191A08A23E00563FD8 /* Frameworks */,
+				1AE7C21A1A08A23E00563FD8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Maya Object";
+			productName = "Maya Object";
+			productReference = 1AE7C21C1A08A23E00563FD8 /* Maya Object.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1AE7C2341A08A23E00563FD8 /* Maya ObjectTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1AE7C2421A08A23E00563FD8 /* Build configuration list for PBXNativeTarget "Maya ObjectTests" */;
+			buildPhases = (
+				1AE7C2311A08A23E00563FD8 /* Sources */,
+				1AE7C2321A08A23E00563FD8 /* Frameworks */,
+				1AE7C2331A08A23E00563FD8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1AE7C2371A08A23E00563FD8 /* PBXTargetDependency */,
+			);
+			name = "Maya ObjectTests";
+			productName = "Maya ObjectTests";
+			productReference = 1AE7C2351A08A23E00563FD8 /* Maya ObjectTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1AE7C2141A08A23E00563FD8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = "Maya Hirakawa";
+				TargetAttributes = {
+					1AE7C21B1A08A23E00563FD8 = {
+						CreatedOnToolsVersion = 6.0.1;
+					};
+					1AE7C2341A08A23E00563FD8 = {
+						CreatedOnToolsVersion = 6.0.1;
+						TestTargetID = 1AE7C21B1A08A23E00563FD8;
+					};
+				};
+			};
+			buildConfigurationList = 1AE7C2171A08A23E00563FD8 /* Build configuration list for PBXProject "Maya Object" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1AE7C2131A08A23E00563FD8;
+			productRefGroup = 1AE7C21D1A08A23E00563FD8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1AE7C21B1A08A23E00563FD8 /* Maya Object */,
+				1AE7C2341A08A23E00563FD8 /* Maya ObjectTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1AE7C21A1A08A23E00563FD8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A9911421A09E40C002A5090 /* information3 (1).png in Resources */,
+				1A9911281A09ABB1002A5090 /* airplane105.png in Resources */,
+				1AE7C22B1A08A23E00563FD8 /* Main.storyboard in Resources */,
+				1A9911321A09ABFF002A5090 /* song.png in Resources */,
+				1AE7C2301A08A23E00563FD8 /* LaunchScreen.xib in Resources */,
+				1AE7C22D1A08A23E00563FD8 /* Images.xcassets in Resources */,
+				1A9911381A09AC26002A5090 /* video71.png in Resources */,
+				1A99112E1A09ABDE002A5090 /* open12.png in Resources */,
+				1A9911341A09AC0A002A5090 /* tea.png in Resources */,
+				1A9911401A09E3F4002A5090 /* heart64.png in Resources */,
+				1A9911301A09ABE9002A5090 /* rotate2.png in Resources */,
+				1A99113A1A09AC33002A5090 /* handshake1 (1).png in Resources */,
+				1A99113C1A09AC4B002A5090 /* three60.png in Resources */,
+				1A9911361A09AC16002A5090 /* document6.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1AE7C2331A08A23E00563FD8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1AE7C2181A08A23E00563FD8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1AE7C2281A08A23E00563FD8 /* ViewController.m in Sources */,
+				1A80D6F71A0A0197000B3E7A /* ViewController2.m in Sources */,
+				1AE7C2251A08A23E00563FD8 /* AppDelegate.m in Sources */,
+				1AE7C2221A08A23E00563FD8 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1AE7C2311A08A23E00563FD8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1AE7C23C1A08A23E00563FD8 /* Maya_ObjectTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1AE7C2371A08A23E00563FD8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1AE7C21B1A08A23E00563FD8 /* Maya Object */;
+			targetProxy = 1AE7C2361A08A23E00563FD8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		1AE7C2291A08A23E00563FD8 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1AE7C22A1A08A23E00563FD8 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		1AE7C22E1A08A23E00563FD8 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1AE7C22F1A08A23E00563FD8 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1AE7C23D1A08A23E00563FD8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		1AE7C23E1A08A23E00563FD8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1AE7C2401A08A23E00563FD8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Maya Object/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		1AE7C2411A08A23E00563FD8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Maya Object/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		1AE7C2431A08A23E00563FD8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Maya ObjectTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Maya Object.app/Maya Object";
+			};
+			name = Debug;
+		};
+		1AE7C2441A08A23E00563FD8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Maya ObjectTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Maya Object.app/Maya Object";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1AE7C2171A08A23E00563FD8 /* Build configuration list for PBXProject "Maya Object" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1AE7C23D1A08A23E00563FD8 /* Debug */,
+				1AE7C23E1A08A23E00563FD8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1AE7C23F1A08A23E00563FD8 /* Build configuration list for PBXNativeTarget "Maya Object" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1AE7C2401A08A23E00563FD8 /* Debug */,
+				1AE7C2411A08A23E00563FD8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1AE7C2421A08A23E00563FD8 /* Build configuration list for PBXNativeTarget "Maya ObjectTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1AE7C2431A08A23E00563FD8 /* Debug */,
+				1AE7C2441A08A23E00563FD8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1AE7C2141A08A23E00563FD8 /* Project object */;
+}
