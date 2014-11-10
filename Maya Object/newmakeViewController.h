@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface newmakeViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UINavigationBar *cancell;
+@property (weak, nonatomic) IBOutlet UINavigationBar *listadd;
 
 @end

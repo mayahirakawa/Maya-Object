@@ -16,7 +16,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+   
+ 
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -33,5 +35,9 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+//- (IBAction)tapbookchange:(id)sender {
+// NSLog(@"ボタンが押されました");
+        
 
 @end

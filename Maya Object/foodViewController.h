@@ -10,4 +10,8 @@
 
 @interface foodViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UITabBar *foodadd;
+
+@property (weak, nonatomic) IBOutlet UITabBar *foodchange;
+
 @end

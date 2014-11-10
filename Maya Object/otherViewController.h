@@ -10,4 +10,8 @@
 
 @interface otherViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UITabBar *otheradd;
+
+@property (weak, nonatomic) IBOutlet UITabBar *otherchange;
+
 @end

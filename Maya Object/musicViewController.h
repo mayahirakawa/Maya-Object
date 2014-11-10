@@ -10,4 +10,9 @@
 
 @interface musicViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UITabBar *musicadd;
+
+@property (weak, nonatomic) IBOutlet UITabBar *musicchange;
+
+
 @end

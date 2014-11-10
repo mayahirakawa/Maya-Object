@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>AD0A4213-E82A-4D8E-9B48-13C8B0E1E430</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Maya Object</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>EAA54006F3E466CA85EE7269FEA4A40632755346</key>
+		<string>https://github.com/mayahirakawa/Maya-Object.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Maya Object.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>EAA54006F3E466CA85EE7269FEA4A40632755346</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/mayahirakawa/Maya-Object.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>EAA54006F3E466CA85EE7269FEA4A40632755346</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>EAA54006F3E466CA85EE7269FEA4A40632755346</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Maya%20Object</string>
+		</dict>
+	</array>
+</dict>
+</plist>

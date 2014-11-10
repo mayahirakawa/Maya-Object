@@ -10,4 +10,9 @@
 
 @interface bookViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UITabBar *bookadd;
+
+@property (weak, nonatomic) IBOutlet UITabBar *bookchange;
+
+
 @end

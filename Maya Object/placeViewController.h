@@ -10,4 +10,9 @@
 
 @interface placeViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UITabBar *placeadd;
+
+@property (weak, nonatomic) IBOutlet UITabBar *placechange;
+
+
 @end

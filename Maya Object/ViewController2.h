@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController2 : UIViewController
-
+@interface ViewController2 : UIViewController<UITabBarDelegate>
+@property (weak, nonatomic) IBOutlet UITabBar *movieadd;
+@property (weak, nonatomic) IBOutlet UITabBarItem *moviechange;
 @end
