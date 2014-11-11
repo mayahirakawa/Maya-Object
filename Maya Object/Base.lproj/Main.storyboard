@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Menu View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="menuViewController" id="vXZ-lx-hvc" customClass="menuViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -102,10 +102,10 @@
             </objects>
             <point key="canvasLocation" x="-2858.6666666666665" y="73.840000000000003"/>
         </scene>
-        <!--View Controller2-->
+        <!--Index View Controller-->
         <scene sceneID="dAl-zs-XiL">
             <objects>
-                <viewController storyboardIdentifier="ViewController2" id="SZ9-cn-abM" customClass="ViewController2" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="indexViewController" id="SZ9-cn-abM" customClass="indexViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Soa-AZ-21u">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -121,9 +121,8 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <items>
-                                    <tabBarItem title="list" id="lT0-ke-S8K"/>
                                     <tabBarItem title="新規リスト作成" image="document6@2x.png" id="LMi-wo-WQx"/>
-                                    <tabBarItem title="並び替え" image="three6@2x.png" id="o4d-Jw-GHg"/>
+                                    <tabBarItem tag="1" title="並び替え" image="three6@2x.png" id="o4d-Jw-GHg"/>
                                 </items>
                             </tabBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="IqF-ro-VJP">
@@ -141,211 +140,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iKV-I7-Ffh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2502" y="73"/>
-        </scene>
-        <!--Book View Controller-->
-        <scene sceneID="H8e-N2-9HP">
-            <objects>
-                <viewController storyboardIdentifier="bookViewController" id="4wm-wx-rdd" customClass="bookViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Cod-Sf-wUH">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="タイトル検索" textAlignment="center" minimumFontSize="17" id="fYi-UP-q83">
-                                <rect key="frame" x="34" y="20" width="253" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <tabBar contentMode="scaleToFill" id="M86-u7-92d">
-                                <rect key="frame" x="0.0" y="519" width="320" height="49"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <items>
-                                    <tabBarItem title="新規リスト作成" image="document6@2x.png" id="a13-6j-JVw"/>
-                                    <tabBarItem title="並び替え" image="three6@2x.png" id="cIX-X4-Cr6"/>
-                                </items>
-                            </tabBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Iow-aS-IzF">
-                                <rect key="frame" x="0.0" y="98" width="320" height="421"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <connections>
-                        <outlet property="bookadd" destination="M86-u7-92d" id="hUg-vE-lwe"/>
-                        <outlet property="bookchange" destination="M86-u7-92d" id="aef-qD-qX1"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jYU-hH-BnR" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2142" y="73"/>
-        </scene>
-        <!--Music View Controller-->
-        <scene sceneID="vTI-SU-wU9">
-            <objects>
-                <viewController storyboardIdentifier="musicViewController" id="GzH-vU-RXC" customClass="musicViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Esz-Zp-iwa">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="タイトル検索" textAlignment="center" minimumFontSize="17" id="bH8-uL-SMn">
-                                <rect key="frame" x="32" y="20" width="256" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <tabBar contentMode="scaleToFill" id="Lyv-9i-dwO">
-                                <rect key="frame" x="0.0" y="519" width="320" height="49"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <items>
-                                    <tabBarItem title="新規リスト作成" image="document6@2x.png" id="c8U-wG-E1I"/>
-                                    <tabBarItem title="並び替え" image="three6@2x.png" id="Avu-mJ-Gxz"/>
-                                </items>
-                            </tabBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="lSG-Yl-nEc">
-                                <rect key="frame" x="0.0" y="98" width="320" height="421"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <connections>
-                        <outlet property="musicadd" destination="Lyv-9i-dwO" id="LWO-lf-SAm"/>
-                        <outlet property="musicchange" destination="Lyv-9i-dwO" id="yzS-p1-5PQ"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fTF-46-opa" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1814" y="73"/>
-        </scene>
-        <!--Food View Controller-->
-        <scene sceneID="bp5-Dg-ZXF">
-            <objects>
-                <viewController storyboardIdentifier="foodViewController" id="92O-DN-yZI" customClass="foodViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="aWV-9w-EaS">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="タイトル検索" textAlignment="center" minimumFontSize="17" id="ULJ-8C-2Sd">
-                                <rect key="frame" x="32" y="20" width="257" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <tabBar contentMode="scaleToFill" id="wSI-ao-cTH">
-                                <rect key="frame" x="0.0" y="519" width="320" height="49"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <items>
-                                    <tabBarItem title="新規リスト作成" image="document6@2x.png" id="39h-LP-1Ui"/>
-                                    <tabBarItem title="並び替え" image="three6@2x.png" id="bbQ-W4-nXK"/>
-                                </items>
-                            </tabBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="6Yj-Yz-Y0j">
-                                <rect key="frame" x="0.0" y="97" width="320" height="422"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <tableView key="tableFooterView" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="5O4-hs-0Mu">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="432"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </tableView>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <connections>
-                        <outlet property="foodadd" destination="wSI-ao-cTH" id="lR7-8E-NJr"/>
-                        <outlet property="foodchange" destination="wSI-ao-cTH" id="xrt-MP-0Xd"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="55i-Fs-6EY" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1480" y="73"/>
-        </scene>
-        <!--Place View Controller-->
-        <scene sceneID="Zl7-3E-lQ1">
-            <objects>
-                <viewController storyboardIdentifier="placeViewController" id="OCq-yd-fde" customClass="placeViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="O17-CJ-T6N">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="タイトル検索" textAlignment="center" minimumFontSize="17" id="Hgx-gt-AtF">
-                                <rect key="frame" x="30" y="20" width="260" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ogf-p3-m8j">
-                                <rect key="frame" x="0.0" y="87" width="320" height="433"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </tableView>
-                            <tabBar contentMode="scaleToFill" id="qnB-mX-mBU">
-                                <rect key="frame" x="0.0" y="520" width="320" height="49"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <items>
-                                    <tabBarItem title="新規リスト作成" image="document6@2x.png" id="EQR-SL-iry"/>
-                                    <tabBarItem title="並び替え" image="three6@2x.png" id="7o8-TK-Izx"/>
-                                </items>
-                            </tabBar>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <connections>
-                        <outlet property="placeadd" destination="qnB-mX-mBU" id="FGL-iw-Hbd"/>
-                        <outlet property="placechange" destination="qnB-mX-mBU" id="Um6-vw-0MD"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="XOl-5Q-0z4" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1146" y="73"/>
-        </scene>
-        <!--Other View Controller-->
-        <scene sceneID="cSJ-Wk-bwG">
-            <objects>
-                <viewController storyboardIdentifier="otherViewController" id="LT0-QG-sBK" customClass="otherViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="RyN-TF-3pt">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="タイトル検索" textAlignment="center" minimumFontSize="17" id="Hf0-Cx-wnJ">
-                                <rect key="frame" x="28" y="20" width="265" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <tabBar contentMode="scaleToFill" id="sP6-nS-uE3">
-                                <rect key="frame" x="0.0" y="519" width="320" height="49"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <items>
-                                    <tabBarItem title="新規リスト作成" image="document6@2x.png" id="75d-8m-kkN"/>
-                                    <tabBarItem title="並び替え" image="three6@2x.png" id="map-J6-NIR"/>
-                                </items>
-                            </tabBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="axh-cy-hEG">
-                                <rect key="frame" x="0.0" y="97" width="320" height="422"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <connections>
-                        <outlet property="otheradd" destination="sP6-nS-uE3" id="MGz-sQ-2VV"/>
-                        <outlet property="otherchange" destination="sP6-nS-uE3" id="mNJ-XJ-Rns"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="RSi-BR-Foa" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-815" y="73"/>
         </scene>
         <!--Newmake View Controller-->
         <scene sceneID="nNR-t8-yWu">
@@ -374,27 +168,75 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <navigationBar contentMode="scaleToFill" id="2FF-28-oeC">
-                                <rect key="frame" x="160" y="0.0" width="160" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem title="リストに追加" id="EoC-76-9Pd"/>
-                                </items>
-                            </navigationBar>
                             <navigationBar contentMode="scaleToFill" id="C76-ER-qad" userLabel="キャンセル">
                                 <rect key="frame" x="0.0" y="0.0" width="160" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem title="キャンセル" id="Dxg-1l-dSt"/>
-                                </items>
                             </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="au1-N2-bNh">
+                                <rect key="frame" x="57" y="7" width="68" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="cancell">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="tapcancell:" destination="wLi-oO-uhg" eventType="touchUpInside" id="FlQ-Tg-Ihs"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="PQ2-yz-sZe">
+                                <rect key="frame" x="189" y="7" width="98" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="リストに追加">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="taplistadd:" destination="wLi-oO-uhg" eventType="touchUpInside" id="Br8-jQ-esh"/>
+                                </connections>
+                            </button>
+                            <imageView tag="5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="kpl-yg-898">
+                                <rect key="frame" x="274" y="106" width="36" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView tag="4" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="T72-EP-bik">
+                                <rect key="frame" x="226" y="106" width="35" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView tag="3" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="0nl-pA-EnO">
+                                <rect key="frame" x="178" y="106" width="37" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="4E4-mM-Z3z">
+                                <rect key="frame" x="85" y="106" width="33" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="ここにコメントを入力" id="oIt-QK-Y97">
+                                <rect key="frame" x="6" y="229" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="bezel" placeholder="数字" minimumFontSize="17" id="7qa-Fp-o5b">
+                                <rect key="frame" x="0.0" y="75" width="57" height="65"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <attributedString key="attributedText"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <imageView tag="2" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="BAU-c1-iLv">
+                                <rect key="frame" x="131" y="106" width="34" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="cancell" destination="C76-ER-qad" id="5O9-UW-k3K"/>
-                        <outlet property="listadd" destination="2FF-28-oeC" id="Yi7-qi-S8J"/>
+                        <outlet property="cancell" destination="au1-N2-bNh" id="c8c-NJ-42b"/>
+                        <outlet property="listadd" destination="PQ2-yz-sZe" id="CR0-TT-Up5"/>
+                        <outlet property="myimage1" destination="4E4-mM-Z3z" id="GqC-ID-3sY"/>
+                        <outlet property="myimage2" destination="BAU-c1-iLv" id="9Mt-bK-iKm"/>
+                        <outlet property="myimage3" destination="0nl-pA-EnO" id="cUl-q8-ozf"/>
+                        <outlet property="myimage4" destination="T72-EP-bik" id="KZK-vc-o99"/>
+                        <outlet property="myimage5" destination="kpl-yg-898" id="2Nn-hB-gob"/>
                         <outlet property="searchDisplayController" destination="qW3-lf-Vke" id="UyW-kw-bql"/>
                     </connections>
                 </viewController>
@@ -408,7 +250,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="-2492" y="805"/>
+            <point key="canvasLocation" x="-2507" y="754"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8Md-f3-1B7">

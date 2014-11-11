@@ -7,6 +7,7 @@
 //
 
 #import "newmakeViewController.h"
+#import "indexViewController.h"
 
 @interface newmakeViewController ()
 
@@ -17,11 +18,24 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+ self.myimage1.image = [UIImage imageNamed:@"ranking07-023.gif"];
+ self.myimage2.image = [UIImage imageNamed:@"ranking07-023.gif"];
+ self.myimage3.image = [UIImage imageNamed:@"ranking07-023.gif"];
+ self.myimage4.image = [UIImage imageNamed:@"ranking07-031.gif"];
+ self.myimage5.image = [UIImage imageNamed:@"ranking07-031.gif"];
+
 }
+
+
+
+
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+   
 }
 
 /*
@@ -34,4 +48,12 @@
 }
 */
 
+- (IBAction)tapcancell:(id)sender {
+    
+  [self dismissViewControllerAnimated:YES completion:nil];
+
+}
+
+- (IBAction)taplistadd:(id)sender {
+}
 @end

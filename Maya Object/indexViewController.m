@@ -6,20 +6,38 @@
 //  Copyright (c) 2014年 Maya Hirakawa. All rights reserved.
 //
 
-#import "ViewController2.h"
-
-@interface ViewController2 ()
+#import "indexViewController.h"
+#import "newmakeViewController.h"
+@interface indexViewController ()
 
 @end
 
-@implementation ViewController2
+@implementation indexViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    
-    
+    // Do any additional setup after loading the view. 
+    self.movieadd.delegate = self;
+
+
+
 }
+
+
+- (void)tabBar:(UITabBar*)tabBar didSelectItem:(UITabBarItem*)item {
+ 
+    NSLog(@"%d",item.tag);
+    
+    
+    
+    if(item.tag ==0){
+        newmakeViewController *nvc = [self.storyboard instantiateViewControllerWithIdentifier:@"newmakeViewController"];
+        [self presentViewController:nvc animated:YES completion:nil];
+}
+
+}
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
