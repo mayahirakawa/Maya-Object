@@ -12,5 +12,6 @@
 
 @property (weak, nonatomic) IBOutlet UITabBar *movieadd;
 @property (weak, nonatomic) IBOutlet UITabBarItem *moviechange;
+@property (weak, nonatomic) IBOutlet UITableView *tableview;
 
 @end

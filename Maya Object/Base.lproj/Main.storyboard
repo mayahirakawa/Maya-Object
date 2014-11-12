@@ -135,6 +135,7 @@
                     </view>
                     <connections>
                         <outlet property="movieadd" destination="ZJp-ML-As0" id="R8F-mG-7dB"/>
+                        <outlet property="tableview" destination="IqF-ro-VJP" id="rOy-Kb-Bi5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iKV-I7-Ffh" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -19,8 +19,7 @@
     // Do any additional setup after loading the view. 
     self.movieadd.delegate = self;
 
-
-
+    self.tableview.separatorColor = [UIColor clearColor];
 }
 
 
