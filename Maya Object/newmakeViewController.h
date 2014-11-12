@@ -10,7 +10,11 @@
 
 @interface newmakeViewController : UIViewController
 {
-BOOL _imageflag;
+BOOL _twinkleflag1;
+BOOL _twinkleflag2;
+BOOL _twinkleflag3;
+BOOL _twinkleflag4;
+BOOL _twinkleflag5;
 }
 @property (weak, nonatomic) IBOutlet UIButton *cancell;
 @property (weak, nonatomic) IBOutlet UIButton *listadd;
