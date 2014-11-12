@@ -8,6 +8,8 @@
 
 #import "newmakeViewController.h"
 #import "indexViewController.h"
+//テーブルビューのコメント入力画面に枠をつけるための準備
+#import "QuartzCore/QuartzCore.h"
 
 @interface newmakeViewController ()
 
@@ -41,7 +43,7 @@
     NSLog(@"%ld",touch.view.tag);
     NSLog(@"tap");
 
- 
+    //NOの時には星が灰色、YESの時には星が黄色
     switch (touch.view.tag) {
         case 1:
             if (_twinkleflag1) {
@@ -94,6 +96,7 @@
                 _twinkleflag5 = YES;
             }
             break;
+        
             
         default:
         break;
@@ -117,10 +120,19 @@
 //    if (self.myimage5.tag == touch.view.tag) {
 //        self.myimage5.image = [UIImage imageNamed:@"staron.gif"];
 //    }
+
+    
+    
+    [[self.textview layer] setCornerRadius:10.0];
+    [self.textview setClipsToBounds:YES];
+    
+    //textViewに黒色の枠を付ける
+    [[self.textview layer] setBorderColor:[[UIColor lightGrayColor] CGColor]];
+    [[self.textview layer] setBorderWidth:1.5];
+
+
+
 }
-
-
-
 
 
 
@@ -135,11 +147,13 @@
 
 - (IBAction)tapcancell:(id)sender {
     
-  [self dismissViewControllerAnimated:YES completion:nil];
+    [self dismissViewControllerAnimated:YES completion:nil];
 
 }
 
 - (IBAction)taplistadd:(id)sender {
+
+    [self dismissViewControllerAnimated:YES completion:nil];
     
     
     

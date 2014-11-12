@@ -23,6 +23,7 @@ BOOL _twinkleflag5;
 @property (weak, nonatomic) IBOutlet UIImageView *myimage3;
 @property (weak, nonatomic) IBOutlet UIImageView *myimage4;
 @property (weak, nonatomic) IBOutlet UIImageView *myimage5;
+@property (weak, nonatomic) IBOutlet UITextView *textview;
 
 
 - (IBAction)tapcancell:(id)sender;

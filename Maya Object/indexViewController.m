@@ -29,12 +29,11 @@
     NSLog(@"%d",item.tag);
     
     
-    
+    //tagバーの画面遷移
     if(item.tag ==0){
         newmakeViewController *nvc = [self.storyboard instantiateViewControllerWithIdentifier:@"newmakeViewController"];
         [self presentViewController:nvc animated:YES completion:nil];
 }
-
 }
 
 
