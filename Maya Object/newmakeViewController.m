@@ -18,13 +18,45 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
- self.myimage1.image = [UIImage imageNamed:@"ranking07-023.gif"];
- self.myimage2.image = [UIImage imageNamed:@"ranking07-023.gif"];
- self.myimage3.image = [UIImage imageNamed:@"ranking07-023.gif"];
- self.myimage4.image = [UIImage imageNamed:@"ranking07-031.gif"];
- self.myimage5.image = [UIImage imageNamed:@"ranking07-031.gif"];
+ self.myimage1.image = [UIImage imageNamed:@"staroff.gif"];
+ self.myimage2.image = [UIImage imageNamed:@"staroff.gif"];
+ self.myimage3.image = [UIImage imageNamed:@"staroff.gif"];
+ self.myimage4.image = [UIImage imageNamed:@"staroff.gif"];
+ self.myimage5.image = [UIImage imageNamed:@"staroff.gif"];
+
+    
+    _imageflag = NO;
 
 }
+//imageにタップが出来る
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    NSLog(@"tap");
+}
+
+UITouch *touch = [[event allTouches] anyObject];
+if ( touch.view.tag == labelCommand.tag )
+NSlog(@"%d");
+
+
+- (UIImage *)imageWithColor:(UIColor *)color {
+    CGRect rect = CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);
+    UIGraphicsBeginImageContext(rect.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    CGContextSetFillColorWithColor(context, [color CGColor]);
+    CGContextFillRect(context, rect);
+    
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return image;
+}
+
+
+//UIImage* str = [self imageWithColor:[UIColorcolorWithRed:0green:0blue:0alpha:0.2]];
+//[linkat setBackgroundImage:str forState:UIControlStateHighlighted];
+
 
 
 

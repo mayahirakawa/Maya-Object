@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface newmakeViewController : UIViewController
+{
+BOOL _imageflag;
+}
 @property (weak, nonatomic) IBOutlet UIButton *cancell;
 @property (weak, nonatomic) IBOutlet UIButton *listadd;
 @property (weak, nonatomic) IBOutlet UIImageView *myimage1;

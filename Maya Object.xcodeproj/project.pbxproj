@@ -13,8 +13,8 @@
 		1A927F581A124FC1007C56D8 /* handshake1 (1)@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A927F4C1A124FC1007C56D8 /* handshake1 (1)@2x.png */; };
 		1A927F591A124FC1007C56D8 /* information19.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A927F4D1A124FC1007C56D8 /* information19.png */; };
 		1A927F5A1A124FC1007C56D8 /* open12.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A927F4E1A124FC1007C56D8 /* open12.png */; };
-		1A927F5B1A124FC1007C56D8 /* ranking07-023.gif in Resources */ = {isa = PBXBuildFile; fileRef = 1A927F4F1A124FC1007C56D8 /* ranking07-023.gif */; };
-		1A927F5C1A124FC1007C56D8 /* ranking07-031.gif in Resources */ = {isa = PBXBuildFile; fileRef = 1A927F501A124FC1007C56D8 /* ranking07-031.gif */; };
+		1A927F5B1A124FC1007C56D8 /* staron.gif in Resources */ = {isa = PBXBuildFile; fileRef = 1A927F4F1A124FC1007C56D8 /* staron.gif */; };
+		1A927F5C1A124FC1007C56D8 /* staroff.gif in Resources */ = {isa = PBXBuildFile; fileRef = 1A927F501A124FC1007C56D8 /* staroff.gif */; };
 		1A927F5D1A124FC1007C56D8 /* rotate2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A927F511A124FC1007C56D8 /* rotate2.png */; };
 		1A927F5E1A124FC1007C56D8 /* song.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A927F521A124FC1007C56D8 /* song.png */; };
 		1A927F5F1A124FC1007C56D8 /* tea.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A927F531A124FC1007C56D8 /* tea.png */; };
@@ -48,8 +48,8 @@
 		1A927F4C1A124FC1007C56D8 /* handshake1 (1)@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "handshake1 (1)@2x.png"; sourceTree = "<group>"; };
 		1A927F4D1A124FC1007C56D8 /* information19.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = information19.png; sourceTree = "<group>"; };
 		1A927F4E1A124FC1007C56D8 /* open12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = open12.png; sourceTree = "<group>"; };
-		1A927F4F1A124FC1007C56D8 /* ranking07-023.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "ranking07-023.gif"; sourceTree = "<group>"; };
-		1A927F501A124FC1007C56D8 /* ranking07-031.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "ranking07-031.gif"; sourceTree = "<group>"; };
+		1A927F4F1A124FC1007C56D8 /* staron.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = staron.gif; sourceTree = "<group>"; };
+		1A927F501A124FC1007C56D8 /* staroff.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = staroff.gif; sourceTree = "<group>"; };
 		1A927F511A124FC1007C56D8 /* rotate2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rotate2.png; sourceTree = "<group>"; };
 		1A927F521A124FC1007C56D8 /* song.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = song.png; sourceTree = "<group>"; };
 		1A927F531A124FC1007C56D8 /* tea.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tea.png; sourceTree = "<group>"; };
@@ -98,8 +98,8 @@
 				1A927F4C1A124FC1007C56D8 /* handshake1 (1)@2x.png */,
 				1A927F4D1A124FC1007C56D8 /* information19.png */,
 				1A927F4E1A124FC1007C56D8 /* open12.png */,
-				1A927F4F1A124FC1007C56D8 /* ranking07-023.gif */,
-				1A927F501A124FC1007C56D8 /* ranking07-031.gif */,
+				1A927F4F1A124FC1007C56D8 /* staron.gif */,
+				1A927F501A124FC1007C56D8 /* staroff.gif */,
 				1A927F511A124FC1007C56D8 /* rotate2.png */,
 				1A927F521A124FC1007C56D8 /* song.png */,
 				1A927F531A124FC1007C56D8 /* tea.png */,
@@ -259,9 +259,9 @@
 				1A927F5A1A124FC1007C56D8 /* open12.png in Resources */,
 				1A927F5D1A124FC1007C56D8 /* rotate2.png in Resources */,
 				1A927F611A124FC1007C56D8 /* video71.png in Resources */,
-				1A927F5B1A124FC1007C56D8 /* ranking07-023.gif in Resources */,
+				1A927F5B1A124FC1007C56D8 /* staron.gif in Resources */,
 				1AE7C22B1A08A23E00563FD8 /* Main.storyboard in Resources */,
-				1A927F5C1A124FC1007C56D8 /* ranking07-031.gif in Resources */,
+				1A927F5C1A124FC1007C56D8 /* staroff.gif in Resources */,
 				1AE7C2301A08A23E00563FD8 /* LaunchScreen.xib in Resources */,
 				1A927F591A124FC1007C56D8 /* information19.png in Resources */,
 				1A927F581A124FC1007C56D8 /* handshake1 (1)@2x.png in Resources */,
