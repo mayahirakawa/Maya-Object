@@ -25,13 +25,36 @@
 
 - (void)tabBar:(UITabBar*)tabBar didSelectItem:(UITabBarItem*)item {
  
-    NSLog(@"%d",item.tag);
+    NSLog(@"%ld",item.tag);
     
     
     //tagバーの画面遷移
+    //インスタンス化したモノを代入
     if(item.tag ==0){
         newmakeViewController *nvc = [self.storyboard instantiateViewControllerWithIdentifier:@"newmakeViewController"];
         [self presentViewController:nvc animated:YES completion:nil];
+}
+
+
+    if (item.tag ==1) {
+        UIActionSheet *actionSheet = [[UIActionSheet alloc]init];
+        //        UIActionSheet *actionSheet = [self.storyboard
+//            instantiateViewControllerWithIdentifier:@"UIActionSheet"];
+        //[self presentViewController:actionSheet animated:YES completion:nil];
+   
+        actionSheet.title = @"リスト並び替え";
+        actionSheet.delegate = self;
+        
+        [actionSheet addButtonWithTitle:@"▲星が多い順"];
+        [actionSheet addButtonWithTitle:@"▼星が少ない順"];
+        [actionSheet addButtonWithTitle:@"△数字が大きい順"];
+        [actionSheet addButtonWithTitle:@"▽数字が小さい順"];
+       
+        [actionSheet addButtonWithTitle:@"キャンセル"];
+        //[actionSheet setDestructiveButtonIndex:1];
+        [actionSheet setCancelButtonIndex:5];
+        [actionSheet showInView:self.view];
+        
 }
 }
 

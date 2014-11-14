@@ -129,6 +129,7 @@
                                 <rect key="frame" x="0.0" y="97" width="320" height="422"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <sections/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -180,7 +181,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="tapcancell:" destination="wLi-oO-uhg" eventType="touchUpInside" id="FlQ-Tg-Ihs"/>
+                                    <action selector="tapcancell:" destination="wLi-oO-uhg" eventType="touchUpInside" id="Mt6-HO-vtf"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="PQ2-yz-sZe">
@@ -190,7 +191,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="taplistadd:" destination="wLi-oO-uhg" eventType="touchUpInside" id="Br8-jQ-esh"/>
+                                    <action selector="taplistadd:" destination="wLi-oO-uhg" eventType="touchUpInside" id="RGP-pY-qy6"/>
                                 </connections>
                             </button>
                             <imageView tag="5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="kpl-yg-898">
@@ -221,7 +222,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="ここにコメントを入力して下さい" id="oIt-QK-Y97">
-                                <rect key="frame" x="6" y="286" width="309" height="276"/>
+                                <rect key="frame" x="6" y="285" width="309" height="276"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -232,15 +233,19 @@
                     </view>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="cancell" destination="au1-N2-bNh" id="c8c-NJ-42b"/>
-                        <outlet property="listadd" destination="PQ2-yz-sZe" id="CR0-TT-Up5"/>
+                        <outlet property="cancell" destination="au1-N2-bNh" id="MDR-n0-p6Y"/>
+                        <outlet property="commenttext" destination="oIt-QK-Y97" id="yb9-jC-8qX"/>
+                        <outlet property="listadd" destination="PQ2-yz-sZe" id="BzY-Ul-3OA"/>
                         <outlet property="myimage1" destination="4E4-mM-Z3z" id="GqC-ID-3sY"/>
                         <outlet property="myimage2" destination="BAU-c1-iLv" id="9Mt-bK-iKm"/>
                         <outlet property="myimage3" destination="0nl-pA-EnO" id="cUl-q8-ozf"/>
                         <outlet property="myimage4" destination="T72-EP-bik" id="KZK-vc-o99"/>
                         <outlet property="myimage5" destination="kpl-yg-898" id="2Nn-hB-gob"/>
+                        <outlet property="pointtext" destination="7qa-Fp-o5b" id="nIb-2s-c3L"/>
                         <outlet property="searchDisplayController" destination="qW3-lf-Vke" id="UyW-kw-bql"/>
+                        <outlet property="subtitletext" destination="PR2-Dd-XBz" id="mt2-qZ-gSY"/>
                         <outlet property="textview" destination="oIt-QK-Y97" id="swc-Ia-JDS"/>
+                        <outlet property="titletext" destination="vaZ-BO-Krg" id="gb7-AF-Z62"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qFA-Gf-NWS" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -253,7 +258,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="-2507" y="754"/>
+            <point key="canvasLocation" x="-2729" y="746"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8Md-f3-1B7">

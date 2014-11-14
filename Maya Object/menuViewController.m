@@ -32,7 +32,6 @@
     //ボタンを押された時のナビゲーションコントローラーでの画面遷移
     indexViewController *ivc = [self.storyboard instantiateViewControllerWithIdentifier:@"indexViewController"];
     [[self navigationController] pushViewController:ivc animated:YES];
-    
 
 }
 - (IBAction)tapbook:(id)sender {
