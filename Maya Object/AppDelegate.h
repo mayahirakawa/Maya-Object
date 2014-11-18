@@ -11,7 +11,8 @@
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-
+//グローバル変数を宣言　どこでも数字を保持できる変数
+@property (nonatomic,assign) int second_select_num;//1117
 
 @end
 

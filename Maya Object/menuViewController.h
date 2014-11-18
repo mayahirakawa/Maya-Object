@@ -12,7 +12,7 @@
 
 
 @property (weak, nonatomic) IBOutlet UIButton *movie;
-//- (IBAction)tapmovie:(id)sender;
+
 @property (strong, nonatomic) IBOutlet UIView *movieimage;
 
 @property (weak, nonatomic) IBOutlet UIButton *book;

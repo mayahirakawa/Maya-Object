@@ -22,7 +22,7 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
 }
 
 - (IBAction)tapmovie:(id)sender {
@@ -32,37 +32,43 @@
     //ボタンを押された時のナビゲーションコントローラーでの画面遷移
     indexViewController *ivc = [self.storyboard instantiateViewControllerWithIdentifier:@"indexViewController"];
     [[self navigationController] pushViewController:ivc animated:YES];
-
+    //画面遷移の時に移動先indexのファーストセレクトナムという変数にタグのナンバーを代入
+    ivc.first_select_num = self.movie.tag;
 }
+
 - (IBAction)tapbook:(id)sender {
    
     indexViewController *ivc = [self.storyboard instantiateViewControllerWithIdentifier:@"indexViewController"];
     [[self navigationController] pushViewController:ivc animated:YES];
+    ivc.first_select_num = self.book.tag;
     
 }
 - (IBAction)tapmusic:(id)sender {
     
     indexViewController *ivc = [self.storyboard instantiateViewControllerWithIdentifier:@"indexViewController"];
     [[self navigationController] pushViewController:ivc animated:YES];
-    
+    ivc.first_select_num = self.music.tag;
 }
 - (IBAction)tapfood:(id)sender {
     
     indexViewController *ivc = [self.storyboard instantiateViewControllerWithIdentifier:@"indexViewController"];
     [[self navigationController] pushViewController:ivc animated:YES];
-                              
+    ivc.first_select_num = self.food.tag;
 }
 - (IBAction)tapplace:(id)sender {
     
     indexViewController *ivc = [self.storyboard instantiateViewControllerWithIdentifier:@"indexViewController"];
     [[self navigationController] pushViewController:ivc animated:YES];
+    ivc.first_select_num = self.place.tag;
 }
 - (IBAction)tapother:(id)sender {
     
     indexViewController *ivc = [self.storyboard instantiateViewControllerWithIdentifier:@"indexViewController"];
     [[self navigationController] pushViewController:ivc animated:YES];
-    
+    ivc.first_select_num = self.other.tag;
     }
 - (IBAction)tapinformation:(id)sender {
 }
+
+
 @end

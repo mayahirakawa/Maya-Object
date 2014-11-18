@@ -7,7 +7,8 @@
 //
 
 #import "newmakeViewController.h"
-#import "indexViewController.h"
+//#import "indexViewController.h"
+#import "AppDelegate.h"
 //テーブルビューのコメント入力画面に枠をつけるための準備
 #import "QuartzCore/QuartzCore.h"
 
@@ -17,16 +18,21 @@
 
 @end
 
-@implementation newmakeViewController
+@implementation newmakeViewController{
+//メンバ変数
+    NSDictionary *favoritelist;
+
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
- self.myimage1.image = [UIImage imageNamed:@"staroff.gif"];
- self.myimage2.image = [UIImage imageNamed:@"staroff.gif"];
- self.myimage3.image = [UIImage imageNamed:@"staroff.gif"];
- self.myimage4.image = [UIImage imageNamed:@"staroff.gif"];
- self.myimage5.image = [UIImage imageNamed:@"staroff.gif"];
+    //評価の星の部分
+    self.myimage1.image = [UIImage imageNamed:@"staroff.gif"];
+    self.myimage2.image = [UIImage imageNamed:@"staroff.gif"];
+    self.myimage3.image = [UIImage imageNamed:@"staroff.gif"];
+    self.myimage4.image = [UIImage imageNamed:@"staroff.gif"];
+    self.myimage5.image = [UIImage imageNamed:@"staroff.gif"];
 
     _twinkleflag1 = NO;
     _twinkleflag2 = NO;
@@ -34,13 +40,28 @@
     _twinkleflag4 = NO;
     _twinkleflag5 = NO;
 
+    //textViewに黒色の枠を付ける
     [[self.textview layer] setCornerRadius:10.0];
     [self.textview setClipsToBounds:YES];
-    
-    //textViewに黒色の枠を付ける
     [[self.textview layer] setBorderColor:[[UIColor lightGrayColor] CGColor]];
     [[self.textview layer] setBorderWidth:1.5];
- 
+    
+    //appに入っている変数を取り出せる
+    AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    //セカンドナムをひっぱる
+    NSLog(@"%d",app.second_select_num);
+    
+    //ユーーザーデフォルトからデータを取り出す
+    //宣言
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *boxName = [defaults stringForKey:@"boxName"];
+    boxName = [self returnBoxName:app.second_select_num];
+    NSArray *favorite;
+    //保存されたデータを取り出す
+    favorite = [defaults objectForKey:@"favoritelist"];
+    _listArray = favorite.mutableCopy;
+
+    
     
 //    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 //    NSMutableDictionary *favoritedata= [[NSMutableDictionary alloc]init];
@@ -170,9 +191,7 @@
 //    }
 
     //20141114try
-    NSLog(@"%d",self.select_num);
-    _listArray =
-    @[@"movie",@"book",@"music",@"food",@"place",@"other"];
+   
 }
 
 - (IBAction)tapcancell:(id)sender {
@@ -186,6 +205,7 @@
     NSLog(@"taplist");
     
  NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+NSMutableDictionary *FavoriteList = [[NSMutableDictionary alloc] initWithDictionary:favoritelist];//1117確認
  NSMutableDictionary *favoritedata= [[NSMutableDictionary alloc] init];
     
     [favoritedata setObject:self.titletext.text forKey:@"title"];
@@ -196,8 +216,53 @@
     [favoritedata setObject:self.commenttext.text forKey:@"comment"];
     [favoritedata setObject:@"" forKey:@"picture"];
     //保存
-    [defaults setObject:favoritedata forKey:@"favoritedata"];
+    AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    //宣言文
+    NSString *num = [NSString stringWithFormat:@"%d",app.second_select_num];
+   
+    
+////////////////1117
+    //[FavoriteList setObject:favoritedata forKey:num];
+    //favoritelist = FavoriteList;
+//@"favoritelist";は仮の名前。上書きされるので何でOK　宣言
+    NSString *boxname = @"favoritelist";
+    //番号にそった名前を代入
+    boxname = [self returnBoxName:app.second_select_num];
+    
+//    switch ([num intValue]) {
+//        case 1:
+//            boxname = @"Movie";
+//            break;
+//            
+//        case 2:
+//            boxname = @"Book";
+//            break;
+//            
+//        case 3:
+//            boxname = @"Music";
+//            break;
+//        
+//        case 4:
+//            boxname = @"Food";
+//            break;
+//        
+//        case 5:
+//            boxname = @"Place";
+//            break;
+//            
+//        case 6:
+//            boxname = @"Other";
+//            break;
+//            
+//        default:
+//            break;
+//    
+//    }
+//    
+    [defaults setObject:favoritelist forKey:boxname];
+    
     [defaults synchronize];
+    
     
 //    NSDictionary *selectedlist = _listArray[self.select_num];
 //    
@@ -227,6 +292,45 @@
 }
 
 
+//番号によってboxnameを返すメソッド
+-(NSString *)returnBoxName:(int)boxNumber{
+
+    NSString *boxName;
+    
+    switch (boxNumber) {
+        case 1:
+            boxName = @"Movie";
+            break;
+            
+        case 2:
+            boxName = @"Book";
+            break;
+            
+        case 3:
+            boxName = @"Music";
+            break;
+            
+        case 4:
+            boxName = @"Food";
+            break;
+            
+        case 5:
+            boxName = @"Place";
+            break;
+            
+        case 6:
+            boxName = @"Other";
+            break;
+            
+        default:
+            break;
+            
+    }
+
+    
+    return boxName;
+
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

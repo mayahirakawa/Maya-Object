@@ -12,7 +12,7 @@
 {
     NSMutableArray *_listArray; //メンバ変数宣言
 }
-@property (nonatomic,assign) int select_num;
+@property (nonatomic,assign) int first_select_num;
 @property (weak, nonatomic) IBOutlet UITabBar *movieadd;
 @property (weak, nonatomic) IBOutlet UITabBarItem *moviechange;
 @property (weak, nonatomic) IBOutlet UITableView *tableview;
