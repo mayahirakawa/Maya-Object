@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface indexViewController : UIViewController<UITabBarDelegate,UIActionSheetDelegate>
+@interface indexViewController : UIViewController<UITabBarDelegate,UIActionSheetDelegate,UITableViewDataSource,UITableViewDelegate>
 {
     NSMutableArray *_listArray; //メンバ変数宣言
 }
@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UITabBar *movieadd;
 @property (weak, nonatomic) IBOutlet UITabBarItem *moviechange;
 @property (weak, nonatomic) IBOutlet UITableView *tableview;
+@property (weak, nonatomic) IBOutlet UILabel *nolistlabel;
 
 
 @end

@@ -32,6 +32,8 @@
     //ボタンを押された時のナビゲーションコントローラーでの画面遷移
     indexViewController *ivc = [self.storyboard instantiateViewControllerWithIdentifier:@"indexViewController"];
     [[self navigationController] pushViewController:ivc animated:YES];
+    
+   
     //画面遷移の時に移動先indexのファーストセレクトナムという変数にタグのナンバーを代入
     ivc.first_select_num = self.movie.tag;
 }

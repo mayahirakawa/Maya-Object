@@ -55,7 +55,7 @@
                             <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="2rX-5F-Nih">
                                 <rect key="frame" x="155" y="357" width="119" height="71"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="heart64.png">
+                                <state key="normal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -65,7 +65,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="W0K-Jq-cDN">
                                 <rect key="frame" x="182" y="476" width="64" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="information3 (1).png">
+                                <state key="normal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -126,6 +126,13 @@
                                 <rect key="frame" x="0.0" y="97" width="320" height="422"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <label key="tableFooterView" opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="　　　まだリストはありません" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="sQl-FL-fne">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="353"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                                 <sections/>
                             </tableView>
                         </subviews>
@@ -133,12 +140,112 @@
                     </view>
                     <connections>
                         <outlet property="movieadd" destination="ZJp-ML-As0" id="R8F-mG-7dB"/>
+                        <outlet property="nolistlabel" destination="sQl-FL-fne" id="hPW-mF-FVk"/>
                         <outlet property="tableview" destination="IqF-ro-VJP" id="rOy-Kb-Bi5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iKV-I7-Ffh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2502" y="73"/>
+        </scene>
+        <!--Edit View Controller-->
+        <scene sceneID="6l2-sB-Exq">
+            <objects>
+                <viewController storyboardIdentifier="editViewController" id="GZs-f5-Cvb" customClass="editViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ww8-KC-Vlq">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="6Qw-Wf-pxK">
+                                <rect key="frame" x="6" y="58" width="68" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="cancell">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="tapcancell:" destination="GZs-f5-Cvb" eventType="touchUpInside" id="vbR-Rj-cGi"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="サブタイトルを入力" textAlignment="center" minimumFontSize="17" id="8cg-YB-dKJ">
+                                <rect key="frame" x="57" y="96" width="263" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="数字" textAlignment="center" minimumFontSize="17" id="wUk-ed-27j">
+                                <rect key="frame" x="0.0" y="96" width="57" height="66"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="ここにコメントを入力して下さい" id="G31-mT-lLm">
+                                <rect key="frame" x="6" y="284" width="309" height="279"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="b4x-n9-IRS">
+                                <rect key="frame" x="86" y="127" width="34" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="gGs-ph-k7j">
+                                <rect key="frame" x="135" y="127" width="32" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="ckd-4n-0PC">
+                                <rect key="frame" x="181" y="126" width="32" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Elf-td-5qK">
+                                <rect key="frame" x="227" y="125" width="34" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Suw-zb-VMK">
+                                <rect key="frame" x="277" y="125" width="33" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="xS0-VX-yvT">
+                                <rect key="frame" x="258" y="58" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="更新">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="tapupdate:" destination="GZs-f5-Cvb" eventType="touchUpInside" id="w7C-42-rOe"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4ha-rJ-7XP">
+                                <rect key="frame" x="174" y="58" width="108" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="削除">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="tapdelete:" destination="GZs-f5-Cvb" eventType="touchUpInside" id="Wwe-b9-WKm"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="cancell" destination="6Qw-Wf-pxK" id="6HO-OU-raU"/>
+                        <outlet property="delete" destination="4ha-rJ-7XP" id="fQM-Uj-41s"/>
+                        <outlet property="myimage1" destination="b4x-n9-IRS" id="3kv-Ir-vIw"/>
+                        <outlet property="myimage2" destination="gGs-ph-k7j" id="JI3-9I-MbM"/>
+                        <outlet property="myimage3" destination="ckd-4n-0PC" id="BWN-Yh-a6W"/>
+                        <outlet property="myimage4" destination="Elf-td-5qK" id="s6f-EG-6FT"/>
+                        <outlet property="myimage5" destination="Suw-zb-VMK" id="fKh-4T-Z5c"/>
+                        <outlet property="pointtext" destination="wUk-ed-27j" id="1zV-HS-S4T"/>
+                        <outlet property="subtitle" destination="wUk-ed-27j" id="aVU-f0-5Zt"/>
+                        <outlet property="textview" destination="G31-mT-lLm" id="rAi-uh-VNb"/>
+                        <outlet property="update" destination="xS0-VX-yvT" id="uRL-zR-vUV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1hz-JC-zGH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2226" y="746"/>
         </scene>
         <!--Newmake View Controller-->
         <scene sceneID="nNR-t8-yWu">
@@ -214,7 +321,7 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="数字" textAlignment="center" minimumFontSize="17" id="7qa-Fp-o5b">
                                 <rect key="frame" x="0.0" y="75" width="57" height="66"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -279,8 +386,6 @@
     <resources>
         <image name="airplane105.png" width="64" height="64"/>
         <image name="document6@2x.png" width="64" height="64"/>
-        <image name="heart64.png" width="64" height="64"/>
-        <image name="information3 (1).png" width="32" height="32"/>
         <image name="open12.png" width="64" height="64"/>
         <image name="song.png" width="64" height="67"/>
         <image name="tea.png" width="64" height="64"/>

@@ -18,11 +18,11 @@
 
 @end
 
-@implementation newmakeViewController{
-//メンバ変数
-    NSDictionary *favoritelist;
+@implementation newmakeViewController
+  
 
-}
+
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -54,14 +54,25 @@
     //ユーーザーデフォルトからデータを取り出す
     //宣言
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSString *boxName = [defaults stringForKey:@"boxName"];
-    boxName = [self returnBoxName:app.second_select_num];
+    NSString *boxname = @"favoritelist";
+    //番号にそった名前を代入
+    boxname = [self returnBoxName:app.second_select_num];
     NSArray *favorite;
     //保存されたデータを取り出す
-    favorite = [defaults objectForKey:@"favoritelist"];
+    favorite = [defaults objectForKey:boxname];
     _listArray = favorite.mutableCopy;
-
+   
+    //初期化
+    if (_listArray == nil) {
+        _listArray = [[NSMutableArray alloc] init];
     
+    
+    
+    
+    
+    }
+
+   
     
 //    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 //    NSMutableDictionary *favoritedata= [[NSMutableDictionary alloc]init];
@@ -205,7 +216,7 @@
     NSLog(@"taplist");
     
  NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-NSMutableDictionary *FavoriteList = [[NSMutableDictionary alloc] initWithDictionary:favoritelist];//1117確認
+
  NSMutableDictionary *favoritedata= [[NSMutableDictionary alloc] init];
     
     [favoritedata setObject:self.titletext.text forKey:@"title"];
@@ -215,51 +226,20 @@ NSMutableDictionary *FavoriteList = [[NSMutableDictionary alloc] initWithDiction
     
     [favoritedata setObject:self.commenttext.text forKey:@"comment"];
     [favoritedata setObject:@"" forKey:@"picture"];
-    //保存
+    //グローバ変数を扱うオブジェクト
     AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    //宣言文
-    NSString *num = [NSString stringWithFormat:@"%d",app.second_select_num];
-   
+    
+    [_listArray addObject:favoritedata];
     
 ////////////////1117
-    //[FavoriteList setObject:favoritedata forKey:num];
-    //favoritelist = FavoriteList;
+//[FavoriteList setObject:favoritedata forKey:num];
+//favoritelist = FavoriteList;
 //@"favoritelist";は仮の名前。上書きされるので何でOK　宣言
     NSString *boxname = @"favoritelist";
     //番号にそった名前を代入
     boxname = [self returnBoxName:app.second_select_num];
     
-//    switch ([num intValue]) {
-//        case 1:
-//            boxname = @"Movie";
-//            break;
-//            
-//        case 2:
-//            boxname = @"Book";
-//            break;
-//            
-//        case 3:
-//            boxname = @"Music";
-//            break;
-//        
-//        case 4:
-//            boxname = @"Food";
-//            break;
-//        
-//        case 5:
-//            boxname = @"Place";
-//            break;
-//            
-//        case 6:
-//            boxname = @"Other";
-//            break;
-//            
-//        default:
-//            break;
-//    
-//    }
-//    
-    [defaults setObject:favoritelist forKey:boxname];
+    [defaults setObject:_listArray forKey:boxname];
     
     [defaults synchronize];
     
