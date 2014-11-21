@@ -156,16 +156,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="6Qw-Wf-pxK">
-                                <rect key="frame" x="6" y="58" width="68" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="cancell">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="tapcancell:" destination="GZs-f5-Cvb" eventType="touchUpInside" id="vbR-Rj-cGi"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="サブタイトルを入力" textAlignment="center" minimumFontSize="17" id="8cg-YB-dKJ">
                                 <rect key="frame" x="57" y="96" width="263" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -230,7 +220,6 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="cancell" destination="6Qw-Wf-pxK" id="6HO-OU-raU"/>
                         <outlet property="delete" destination="4ha-rJ-7XP" id="fQM-Uj-41s"/>
                         <outlet property="myimage1" destination="b4x-n9-IRS" id="3kv-Ir-vIw"/>
                         <outlet property="myimage2" destination="gGs-ph-k7j" id="JI3-9I-MbM"/>
@@ -238,7 +227,7 @@
                         <outlet property="myimage4" destination="Elf-td-5qK" id="s6f-EG-6FT"/>
                         <outlet property="myimage5" destination="Suw-zb-VMK" id="fKh-4T-Z5c"/>
                         <outlet property="pointtext" destination="wUk-ed-27j" id="1zV-HS-S4T"/>
-                        <outlet property="subtitle" destination="wUk-ed-27j" id="aVU-f0-5Zt"/>
+                        <outlet property="subtitle" destination="8cg-YB-dKJ" id="H5p-if-GT1"/>
                         <outlet property="textview" destination="G31-mT-lLm" id="rAi-uh-VNb"/>
                         <outlet property="update" destination="xS0-VX-yvT" id="uRL-zR-vUV"/>
                     </connections>

@@ -30,7 +30,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *myimage4;
 @property (weak, nonatomic) IBOutlet UIImageView *myimage5;
 @property (weak, nonatomic) IBOutlet UITextView *textview;
-@property (weak, nonatomic) IBOutlet UIButton *cancell;
+
 //@property(nonatomic,assign) NSString *listKey;
 @property(nonatomic,assign) NSString *listName;
 

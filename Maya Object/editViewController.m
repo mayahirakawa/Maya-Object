@@ -64,13 +64,13 @@
     
 }
     //ナビゲーションのバー？にタイトルを表示する
-//    [[self navigationItem] setTitle:boxname];
-//    [[self navigationItem] setTitle:_select_num];
-//
-//    cell.textLabel.text = [NSString stringWithFormat:@"%@",_listArray[_select_num;][@"title"]];
-//    return cell;
-    
-    
+    [[self navigationItem] setTitle:_listArray[_select_num][@"title"]];
+    //保存されているサブタイトルを表示する
+    [[self subtitle] setText:_listArray[_select_num][@"subtitle"]];
+    //保存されている数字を表示する
+    [[self pointtext] setText:_listArray[_select_num][@"point"]];
+    //保存されているコメントを表示する
+    [[self textview] setText:_listArray[_select_num][@"comment"]];
     
     //バーのカラーカスタマイズ
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];  // バーアイテムカラー
@@ -84,7 +84,6 @@
 //imageにタップが出来る
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    
     UITouch *touch = [[event allTouches] anyObject];
     //touch.view.tagはimageのtag番号を取得する
     NSLog(@"%ld",touch.view.tag);
