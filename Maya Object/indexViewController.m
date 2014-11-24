@@ -14,7 +14,10 @@
 
 @end
 
-@implementation indexViewController
+@implementation indexViewController{
+
+    NSString *boxname;//1122 メンバ変数にした
+}
 
 
 
@@ -29,16 +32,10 @@
     NSLog(@"%d",self.first_select_num);
     
     
+    
 //背景色を透明にしたいUIViewのインスタンスを作成する
 UILabel *nolistlabel = [[UILabel alloc] initWithFrame:self.nolistlabel.frame];
-//opaque属性にNOを設定する事で、背景透過を許可する
-//ここの設定を忘れると、背景色をいくら頑張っても透明にならない
-//_nolistlabel.opaque = NO;
-//backgroundColorにalpha=0.0fの背景色を設定することで、背景色を透明にする
-//_nolistlabel.backgroundColor = [UIColor colorWithWhite:0.0f alpha:0.0f];
-//_nolistlabel.textColor = [UIColor yellowColor];
-//ラベルを透明にする
-_nolistlabel.alpha = 0.0;
+//_nolistlabel.alpha = 0.0;
 //作成した背景色透明のViewを現在のViewの上に追加する
 //[self.nolistlabel addSubview:nolistlabel];
 
@@ -49,8 +46,10 @@ _nolistlabel.alpha = 0.0;
     //appのセカンドセレクトナムにファーストセレクトナムの数字を代入
     app.second_select_num = self.first_select_num;//117
     NSString *num = [NSString stringWithFormat:@"%d",app.second_select_num];
+    boxname = [self returnBoxName:app.second_select_num];
+    
     //宣言文
-    NSString *boxname = @"favoritelist";
+        boxname = @"favoritelist";
     
        switch ([num intValue]) {
         case 1:
@@ -100,6 +99,44 @@ _nolistlabel.alpha = 0.0;
   
 }
 
+
+//横スワイプで削除ボタンを表示
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete)
+    
+{
+    
+    //ユーザーデフォルトを使えるようにする
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    //_listArray = [defaults objectForKey:@"_listArray"];
+    //NSMutableDictionary *list = [[NSMutableDictionary alloc]initWithDictionary:_listArray];
+    //消したいデーターをセレクトナムを使って消す
+    [_listArray removeObject:_listArray[indexPath.row]];
+    
+   // NSString *boxname = @"favoritelist";
+    //グローバ変数を扱うオブジェクト
+    AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
+    //番号にそった名前を代入
+    boxname = [self returnBoxName:app.second_select_num];
+    
+    //選択したセル番号を持ってくる
+    //NSInteger selectindex = indexPath.row;
+    //NSMutableArray *listArray = [[NSMutableArray alloc] initWithArray:_listArray];
+    
+    
+    //_listArray = list;
+    
+    [defaults setObject:_listArray forKey:boxname];
+    [defaults synchronize];
+    
+  
+    }
+
+    [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+}
+
 //行数を決定するメソッド
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return _listArray.count;
@@ -121,10 +158,12 @@ _nolistlabel.alpha = 0.0;
 
     cell.textLabel.text = [NSString stringWithFormat:@"%d",_listArray[indexPath.row][@"point"]];
     return cell;
-  
-
-
-
+    
+    //星をテーブルビューに表示させたいが出来ていない。
+    
+    
+    cell.imageView.image = [UIImage imageNamed:_listArray[indexPath.row][@"picture"]];
+    
 }
 
 //セル押された時
@@ -172,7 +211,45 @@ indexpath{
 }
 }
 
+-(NSString *)returnBoxName:(int)boxNumber{
+    NSString *boxName;
+    
+    switch (boxNumber) {
+        case 1:
+            boxName = @"Movie";
+            break;
+            
+        case 2:
+            boxName = @"Book";
+            break;
+            
+        case 3:
+            boxName = @"Music";
+            break;
+            
+        case 4:
+            boxName = @"Food";
+            break;
+            
+        case 5:
+            boxName = @"Place";
+            break;
+            
+        case 6:
+            boxName = @"Other";
+            break;
+            
+        default:
+            break;
+            
+    }
+    
+    
+    return boxName;
+    
+}
 
+    
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

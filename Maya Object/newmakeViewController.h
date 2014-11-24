@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface newmakeViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
+@interface newmakeViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 {
 
 NSMutableArray *_listArray; //メンバ変数宣言
@@ -27,9 +27,7 @@ BOOL _twinkleflag5;
 @property (weak, nonatomic) IBOutlet UITextField *pointtext;
 
 @property (weak, nonatomic) IBOutlet UITextView *commenttext;
-
-
-
+@property (weak, nonatomic) IBOutlet UIImageView *cameraroll;
 
 @property (weak, nonatomic) IBOutlet UIImageView *myimage1;
 @property (weak, nonatomic) IBOutlet UIImageView *myimage2;

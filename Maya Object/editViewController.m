@@ -43,6 +43,9 @@
     _twinkleflag5 = NO;
    
 
+  
+    
+    
     //ユーーザーデフォルトからデータを取り出す
     //宣言
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -71,12 +74,98 @@
     [[self pointtext] setText:_listArray[_select_num][@"point"]];
     //保存されているコメントを表示する
     [[self textview] setText:_listArray[_select_num][@"comment"]];
+    //保存されている星を編集画面にも反映させたいが出来ていない
+    NSLog(@"%@",_listArray[_select_num][@"c"]);
+   
+    // starcountを整数に変換
+    int starcount = [_listArray[_select_num][@"review"] intValue];
+   //星を光らせる
+    switch (starcount) {
+        case 1:
+                
+                self.myimage1.image = [UIImage imageNamed:@"staron.gif"];
+                _twinkleflag1 = YES;
+            
+            break;
+        case 2:
+            
+                self.myimage1.image = [UIImage imageNamed:@"staron.gif"];
+                _twinkleflag1 = YES;
+            
+            
+                self.myimage2.image = [UIImage imageNamed:@"staron.gif"];
+                _twinkleflag2 = YES;
+            
+            break;
+        case 3:
+            
+                self.myimage1.image = [UIImage imageNamed:@"staron.gif"];
+                _twinkleflag1 = YES;
+            
+            
+                self.myimage2.image = [UIImage imageNamed:@"staron.gif"];
+                _twinkleflag2 = YES;
     
+                self.myimage3.image = [UIImage imageNamed:@"staron.gif"];
+                _twinkleflag3 = YES;
+            
+            break;
+        case 4:
+
+                self.myimage1.image = [UIImage imageNamed:@"staron.gif"];
+                _twinkleflag1 = YES;
+            
+            
+                self.myimage2.image = [UIImage imageNamed:@"staron.gif"];
+                _twinkleflag2 = YES;
+            
+                self.myimage3.image = [UIImage imageNamed:@"staron.gif"];
+                _twinkleflag3 = YES;
+
+            
+                self.myimage4.image = [UIImage imageNamed:@"staron.gif"];
+                _twinkleflag4 = YES;
+            
+            
+            break;
+        case 5:
+
+                self.myimage1.image = [UIImage imageNamed:@"staron.gif"];
+                _twinkleflag1 = YES;
+            
+            
+                self.myimage2.image = [UIImage imageNamed:@"staron.gif"];
+                _twinkleflag2 = YES;
+            
+                self.myimage3.image = [UIImage imageNamed:@"staron.gif"];
+                _twinkleflag3 = YES;
+            
+            
+                self.myimage4.image = [UIImage imageNamed:@"staron.gif"];
+                _twinkleflag4 = YES;
+            
+                self.myimage5.image = [UIImage imageNamed:@"staron.gif"];
+                _twinkleflag5 = YES;
+            
+            break;
+            
+            
+        default:
+            break;
+    }
+
+//    [[self myimage1] setImage:_listArray[_select_num][@"picture"]];
+//    [[self myimage2] setImage:_listArray[_select_num][@"picture"]];
+//    [[self myimage3] setImage:_listArray[_select_num][@"picture"]];
+//    [[self myimage4] setImage:_listArray[_select_num][@"picture"]];
+//    [[self myimage5] setImage:_listArray[_select_num][@"picture"]];
+//    
     //バーのカラーカスタマイズ
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];  // バーアイテムカラー
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.211 green:0.8 blue:1.0 alpha:1.000];  // バー背景色
-    [UINavigationBar appearance].titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+//    [UINavigationBar appearance].titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
+//    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 
     
 }
@@ -163,6 +252,32 @@
 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"履歴を削除" message:@"こちらの履歴を削除してもよろしいですか？" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
     
     [alert show];
+    
+   //ユーザーデフォルトを使えるようにする
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    //_listArray = [defaults objectForKey:@"_listArray"];
+    //NSMutableDictionary *list = [[NSMutableDictionary alloc]initWithDictionary:_listArray];
+    //消したいデーターをセレクトナムを使って消す
+    [_listArray removeObject:_listArray[_select_num]];
+   
+    NSString *boxname = @"favoritelist";
+    //グローバ変数を扱うオブジェクト
+    AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    //番号にそった名前を代入
+    boxname = [self returnBoxName:app.second_select_num];
+     
+     //選択したセル番号を持ってくる
+     //NSInteger selectindex = indexPath.row;
+     //NSMutableArray *listArray = [[NSMutableArray alloc] initWithArray:_listArray];
+     
+     
+     //_listArray = list;
+     
+     [defaults setObject:_listArray forKey:boxname];
+     [defaults synchronize];
+    
+    
+  
 
 }
 -(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
@@ -216,7 +331,7 @@ UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"履歴を削除" messa
 //番号によってboxnameを返すメソッド
 -(NSString *)returnBoxName:(int)boxNumber{
     
-    NSString *boxName;
+   NSString *boxName;
     
     switch (boxNumber) {
         case 1:

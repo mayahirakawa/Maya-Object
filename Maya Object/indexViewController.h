@@ -11,6 +11,7 @@
 @interface indexViewController : UIViewController<UITabBarDelegate,UIActionSheetDelegate,UITableViewDataSource,UITableViewDelegate>
 {
     NSMutableArray *_listArray; //メンバ変数宣言
+    
 }
 @property (nonatomic,assign) int first_select_num;
 @property (weak, nonatomic) IBOutlet UITabBar *movieadd;

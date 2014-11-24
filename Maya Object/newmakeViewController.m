@@ -40,6 +40,11 @@
     _twinkleflag4 = NO;
     _twinkleflag5 = NO;
 
+    
+    
+    //カメラロールから写真を選ぶ
+    
+    
     //textViewに黒色の枠を付ける
     [[self.textview layer] setCornerRadius:10.0];
     [self.textview setClipsToBounds:YES];
@@ -70,9 +75,8 @@
     
     
     
-    }
-
-   
+}
+}
     
 //    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 //    NSMutableDictionary *favoritedata= [[NSMutableDictionary alloc]init];
@@ -115,7 +119,7 @@
 //}
 //
 //    
-}
+
     //imageにタップが出来る
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
@@ -215,14 +219,43 @@
 - (IBAction)taplistadd:(id)sender {
     NSLog(@"taplist");
     
+    
+    
+    
  NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 
  NSMutableDictionary *favoritedata= [[NSMutableDictionary alloc] init];
     
+    
+    //光っている星の数を数える
+    int starcount = 0;
+    
+    if (_twinkleflag1) {
+        starcount++;
+    }
+    
+    if (_twinkleflag2) {
+        starcount++;
+    }
+    
+    if (_twinkleflag3) {
+        starcount++;
+    }
+    
+    if (_twinkleflag4) {
+        starcount++;
+    }
+    
+    if (_twinkleflag5) {
+        starcount++;
+    }
+
+
+    
     [favoritedata setObject:self.titletext.text forKey:@"title"];
     [favoritedata setObject:self.subtitletext.text forKey:@"subtitle"];
     [favoritedata setObject:self.pointtext.text forKey:@"point"];
-    [favoritedata setObject:@2 forKey:@"review"];
+    [favoritedata setObject:[NSString stringWithFormat:@"%d", starcount]forKey:@"review"];
     
     [favoritedata setObject:self.commenttext.text forKey:@"comment"];
     [favoritedata setObject:@"" forKey:@"picture"];

@@ -53,9 +53,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="2rX-5F-Nih">
-                                <rect key="frame" x="155" y="357" width="119" height="71"/>
+                                <rect key="frame" x="199" y="376" width="32" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal">
+                                <state key="normal" image="like_outline-64.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -65,7 +65,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="W0K-Jq-cDN">
                                 <rect key="frame" x="182" y="476" width="64" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal">
+                                <state key="normal" image="about-26.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -170,7 +170,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="ここにコメントを入力して下さい" id="G31-mT-lLm">
-                                <rect key="frame" x="6" y="284" width="309" height="279"/>
+                                <rect key="frame" x="6" y="306" width="309" height="257"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -196,18 +196,8 @@
                                 <rect key="frame" x="277" y="125" width="33" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="xS0-VX-yvT">
-                                <rect key="frame" x="258" y="58" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="更新">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="tapupdate:" destination="GZs-f5-Cvb" eventType="touchUpInside" id="w7C-42-rOe"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4ha-rJ-7XP">
-                                <rect key="frame" x="174" y="58" width="108" height="30"/>
+                                <rect key="frame" x="179" y="67" width="108" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="削除">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -216,10 +206,25 @@
                                     <action selector="tapdelete:" destination="GZs-f5-Cvb" eventType="touchUpInside" id="Wwe-b9-WKm"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Bw2-Rj-XwM">
+                                <rect key="frame" x="47" y="170" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="xS0-VX-yvT">
+                                <rect key="frame" x="258" y="67" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="更新">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="tapupdate:" destination="GZs-f5-Cvb" eventType="touchUpInside" id="w7C-42-rOe"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="cameraroll" destination="Bw2-Rj-XwM" id="FhU-Yf-f0b"/>
                         <outlet property="delete" destination="4ha-rJ-7XP" id="fQM-Uj-41s"/>
                         <outlet property="myimage1" destination="b4x-n9-IRS" id="3kv-Ir-vIw"/>
                         <outlet property="myimage2" destination="gGs-ph-k7j" id="JI3-9I-MbM"/>
@@ -321,11 +326,16 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="8zG-WX-WeJ">
+                                <rect key="frame" x="40" y="149" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="cameraroll" destination="8zG-WX-WeJ" id="z9m-oP-w6p"/>
                         <outlet property="cancell" destination="au1-N2-bNh" id="MDR-n0-p6Y"/>
                         <outlet property="commenttext" destination="oIt-QK-Y97" id="yb9-jC-8qX"/>
                         <outlet property="listadd" destination="PQ2-yz-sZe" id="BzY-Ul-3OA"/>
@@ -373,8 +383,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="about-26.png" width="26" height="26"/>
         <image name="airplane105.png" width="64" height="64"/>
         <image name="document6@2x.png" width="64" height="64"/>
+        <image name="like_outline-64.png" width="64" height="64"/>
         <image name="open12.png" width="64" height="64"/>
         <image name="song.png" width="64" height="67"/>
         <image name="tea.png" width="64" height="64"/>
