@@ -219,8 +219,15 @@
 - (IBAction)taplistadd:(id)sender {
     NSLog(@"taplist");
     
-    
-    
+    if ([_titletext.text isEqualToString:@""]){
+        
+        UIAlertView *alert =
+        [[UIAlertView alloc] initWithTitle:@"NO TITLE" message:@"タイトルを入力して下さい。"
+                              delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+        return;
+
+    }
     
  NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 

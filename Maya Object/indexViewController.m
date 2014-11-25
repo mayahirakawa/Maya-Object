@@ -25,20 +25,99 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
   
+//    self.movieadd.delegate = self;
+//
+//    self.tableview.separatorColor = [UIColor clearColor];
+//
+//    NSLog(@"%d",self.first_select_num);
+//    
+//    
+//    
+////背景色を透明にしたいUIViewのインスタンスを作成する
+//UILabel *nolistlabel = [[UILabel alloc] initWithFrame:self.nolistlabel.frame];
+////_nolistlabel.alpha = 0.0;
+////作成した背景色透明のViewを現在のViewの上に追加する
+////[self.nolistlabel addSubview:nolistlabel];
+//
+//    
+//    
+//    //appに入っている変数を取り出せる
+//    AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication] delegate];//117
+//    //appのセカンドセレクトナムにファーストセレクトナムの数字を代入
+//    app.second_select_num = self.first_select_num;//117
+//    NSString *num = [NSString stringWithFormat:@"%d",app.second_select_num];
+//    boxname = [self returnBoxName:app.second_select_num];
+//    
+////    //宣言文
+////        boxname = @"favoritelist";
+////    
+////       switch ([num intValue]) {
+////        case 1:
+////            boxname = @"Movie";
+////
+////            break;
+////               
+////        case 2:
+////            boxname = @"Book";
+////           
+////            break;
+////            
+////        case 3:
+////            boxname = @"Music";
+////          
+////            break;
+////            
+////        case 4:
+////            boxname = @"Food";
+////           
+////            break;
+////            
+////        case 5:
+////            boxname = @"Place";
+////         
+////            break;
+////            
+////        case 6:
+////            boxname = @"Other";
+////            break;
+////            
+////        default:
+////            break;
+////            
+////    }
+//    
+//    //UserDefaultからデータを取り出す
+//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//    //保存されたデータを取り出す
+//     _listArray = [defaults objectForKey:boxname];
+//    //テーブルビューに表示する
+//    self.tableview.dataSource = self;
+//    self.tableview.delegate = self;
+//    
+//
+//   //ナビゲーションのバー？にタイトルを表示する
+//    [[self navigationItem] setTitle:boxname];
+//  
+}
+
+
+- (void)viewWillAppear:(BOOL)animated  {
+    
+
     self.movieadd.delegate = self;
-
+    
     self.tableview.separatorColor = [UIColor clearColor];
-
+    
     NSLog(@"%d",self.first_select_num);
     
     
     
-//背景色を透明にしたいUIViewのインスタンスを作成する
-UILabel *nolistlabel = [[UILabel alloc] initWithFrame:self.nolistlabel.frame];
-//_nolistlabel.alpha = 0.0;
-//作成した背景色透明のViewを現在のViewの上に追加する
-//[self.nolistlabel addSubview:nolistlabel];
-
+    //背景色を透明にしたいUIViewのインスタンスを作成する
+    UILabel *nolistlabel = [[UILabel alloc] initWithFrame:self.nolistlabel.frame];
+    //_nolistlabel.alpha = 0.0;
+    //作成した背景色透明のViewを現在のViewの上に追加する
+    //[self.nolistlabel addSubview:nolistlabel];
+    
     
     
     //appに入っている変数を取り出せる
@@ -48,56 +127,26 @@ UILabel *nolistlabel = [[UILabel alloc] initWithFrame:self.nolistlabel.frame];
     NSString *num = [NSString stringWithFormat:@"%d",app.second_select_num];
     boxname = [self returnBoxName:app.second_select_num];
     
-    //宣言文
-        boxname = @"favoritelist";
     
-       switch ([num intValue]) {
-        case 1:
-            boxname = @"Movie";
-
-            break;
-               
-        case 2:
-            boxname = @"Book";
-           
-            break;
-            
-        case 3:
-            boxname = @"Music";
-          
-            break;
-            
-        case 4:
-            boxname = @"Food";
-           
-            break;
-            
-        case 5:
-            boxname = @"Place";
-         
-            break;
-            
-        case 6:
-            boxname = @"Other";
-            break;
-            
-        default:
-            break;
-            
-    }
     //UserDefaultからデータを取り出す
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     //保存されたデータを取り出す
-     _listArray = [defaults objectForKey:boxname];
+    _listArray = [defaults objectForKey:boxname];
+   
+    [self.tableview reloadData];
+
     //テーブルビューに表示する
     self.tableview.dataSource = self;
     self.tableview.delegate = self;
     
-
-   //ナビゲーションのバー？にタイトルを表示する
+    
+    //ナビゲーションのバー？にタイトルを表示する
     [[self navigationItem] setTitle:boxname];
+    
   
+    
 }
+
 
 
 //横スワイプで削除ボタンを表示
