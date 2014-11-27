@@ -62,8 +62,7 @@
     if (_listArray == nil) {
         _listArray = [[NSMutableArray alloc] init];
         
-
-
+      
     
 }
     //ナビゲーションのバー？にタイトルを表示する
@@ -244,9 +243,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-
-- (IBAction)tapcancell:(id)sender {
-}
 - (IBAction)tapdelete:(id)sender {
  //削除しますか？アラート表示
 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"履歴を削除" message:@"こちらの履歴を削除してもよろしいですか？" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
@@ -276,58 +272,22 @@ UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"履歴を削除" messa
      [defaults setObject:_listArray forKey:boxname];
      [defaults synchronize];
     
-    
-  
-
 }
+
 -(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     
-    //NSLog(@"%d",buttonIndex);
+  
+    //アラートビューの削除でオッケーが押されたらインデックスに画面遷移
     
-//    if (buttonIndex == 0){
-//        //キャンセル
-//    }else{
-//        //OK
-//        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-//        
-//       _listArray =[defaults dictionaryForKey:@"listarray"];
-//        NSMutableDictionary *ret_dictionary = [[NSMutableDictionary alloc] initWithDictionary:_listArray];
-//        
-//        //データを削除
-//        [ret_dictionary removeObjectForKey:self.listKey];
-//        _listArray = ret_dictionary;
-//        [defaults setObject:_listArray forKey:@"listarray"];
-//        [defaults synchronize];
-//        
-//        //画像ファイルを削除
-//        // ファイルマネージャを作成
-//        NSFileManager *fileManager = [NSFileManager defaultManager];
-//        
-//        // 削除したいファイルのパスを作成
-//        NSString *FileName = self.listName;
-//        // Documentsディレクトリに保存
-//        NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-//        
-//        NSString *FullPath = [NSString stringWithFormat:@"%@/%@",path,FileName];
-//        
-//        
-//        NSError *error;
-//        
-//        // ファイルを移動
-//        BOOL result = [fileManager removeItemAtPath:FullPath error:&error];
-//        if (result) {
-//            NSLog(@"ファイルを削除に成功：%@", FullPath);
-//        } else {
-//            NSLog(@"ファイルの削除に失敗：%@", error.description);
-//        }
-//        
-//        indexViewController *ivc = [self.storyboard instantiateViewControllerWithIdentifier:@"indexViewController"];
-//        
-//        //前の画面に戻る
-//        [self.navigationController pushViewController:ivc animated:YES];
-//        
-//}
-}
+    if (buttonIndex == 1) {
+        
+        indexViewController *ivc = [self.storyboard   instantiateViewControllerWithIdentifier:@"indexViewController"];
+        
+        [self.navigationController pushViewController:ivc animated:YES];
+        
+    }
+    
+ }
 //番号によってboxnameを返すメソッド
 -(NSString *)returnBoxName:(int)boxNumber{
     
@@ -372,5 +332,68 @@ UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"履歴を削除" messa
 
 
 - (IBAction)tapupdate:(id)sender {
+    
+    
+    NSMutableDictionary *favoritedata= [[NSMutableDictionary alloc] init];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+
+
+    
+    //光っている星の数を数える
+    int starcount = 0;
+    
+    if (_twinkleflag1) {
+        starcount++;
+    }
+    
+    if (_twinkleflag2) {
+        starcount++;
+    }
+    
+    if (_twinkleflag3) {
+        starcount++;
+    }
+    
+    if (_twinkleflag4) {
+        starcount++;
+    }
+    
+    if (_twinkleflag5) {
+        starcount++;
+    }
+    
+    
+    //新しい箱に置き換える
+    [favoritedata setObject:_listArray[_select_num][@"title"] forKey:@"title"];
+    [favoritedata setObject:self.subtitle.text forKey:@"subtitle"];
+    [favoritedata setObject:self.pointtext.text forKey:@"point"];
+    [favoritedata setObject:[NSString stringWithFormat:@"%d", starcount]forKey:@"review"];
+    
+    [favoritedata setObject:self.textview.text forKey:@"comment"];
+    [favoritedata setObject:@"" forKey:@"picture"];
+    //グローバ変数を扱うオブジェクト
+    AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
+    //[_listArray addObject:favoritedata];
+    [_listArray replaceObjectAtIndex:self.select_num withObject:favoritedata];
+    
+    //@"favoritelist";は仮の名前。上書きされるので何でOK　宣言
+    NSString *boxname = @"favoritelist";
+    //番号にそった名前を代入
+    boxname = [self returnBoxName:app.second_select_num];
+    
+    [defaults setObject:_listArray forKey:boxname];
+    
+    [defaults synchronize];
+    
+    //画面遷移
+           
+   indexViewController *ivc = [self.storyboard   instantiateViewControllerWithIdentifier:@"indexViewController"];
+   
+    [self.navigationController pushViewController:ivc animated:YES];
+
+    
 }
 @end

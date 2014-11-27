@@ -30,17 +30,7 @@
 //    self.tableview.separatorColor = [UIColor clearColor];
 //
 //    NSLog(@"%d",self.first_select_num);
-//    
-//    
-//    
-////背景色を透明にしたいUIViewのインスタンスを作成する
-//UILabel *nolistlabel = [[UILabel alloc] initWithFrame:self.nolistlabel.frame];
-////_nolistlabel.alpha = 0.0;
-////作成した背景色透明のViewを現在のViewの上に追加する
-////[self.nolistlabel addSubview:nolistlabel];
-//
-//    
-//    
+
 //    //appに入っている変数を取り出せる
 //    AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication] delegate];//117
 //    //appのセカンドセレクトナムにファーストセレクトナムの数字を代入
@@ -112,18 +102,18 @@
     
     
     
-    //背景色を透明にしたいUIViewのインスタンスを作成する
-    UILabel *nolistlabel = [[UILabel alloc] initWithFrame:self.nolistlabel.frame];
-    //_nolistlabel.alpha = 0.0;
-    //作成した背景色透明のViewを現在のViewの上に追加する
-    //[self.nolistlabel addSubview:nolistlabel];
+   
     
-    
-    
-    //appに入っている変数を取り出せる
+        //appに入っている変数を取り出せる
     AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication] delegate];//117
     //appのセカンドセレクトナムにファーストセレクトナムの数字を代入
-    app.second_select_num = self.first_select_num;//117
+    
+    if (self.first_select_num != 0) {
+        
+    
+        app.second_select_num = self.first_select_num;//117
+        
+    }
     NSString *num = [NSString stringWithFormat:@"%d",app.second_select_num];
     boxname = [self returnBoxName:app.second_select_num];
     
@@ -131,10 +121,28 @@
     //UserDefaultからデータを取り出す
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     //保存されたデータを取り出す
-    _listArray = [defaults objectForKey:boxname];
-   
-    [self.tableview reloadData];
+    NSArray *Array = [defaults objectForKey:boxname];
+    //変更可能なデータに変換して代入
+    _listArray = Array.mutableCopy;
 
+    
+    [self.tableview reloadData];
+    
+//    [self.tableview reloadData];
+    
+    if (_listArray.count == 0) {
+        
+        _nolistlabel.alpha = 1.0;
+
+    
+    }else{
+        
+        _nolistlabel.alpha = 0.0;
+    
+    }
+    
+   
+    
     //テーブルビューに表示する
     self.tableview.dataSource = self;
     self.tableview.delegate = self;
@@ -161,7 +169,8 @@
     //_listArray = [defaults objectForKey:@"_listArray"];
     //NSMutableDictionary *list = [[NSMutableDictionary alloc]initWithDictionary:_listArray];
     //消したいデーターをセレクトナムを使って消す
-    [_listArray removeObject:_listArray[indexPath.row]];
+    NSDictionary *delDec =_listArray[indexPath.row];
+    [_listArray removeObject:delDec];
     
    // NSString *boxname = @"favoritelist";
     //グローバ変数を扱うオブジェクト
@@ -180,6 +189,17 @@
     [defaults setObject:_listArray forKey:boxname];
     [defaults synchronize];
     
+    if (_listArray.count == 0) {
+        
+        _nolistlabel.alpha = 1.0;
+        
+        
+    }else{
+        
+        _nolistlabel.alpha = 0.0;
+        
+    }
+
   
     }
 
@@ -192,7 +212,6 @@
 }
 
 //行に表示するデータの作成
-
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     static NSString *cellIdentifier = @"cell";
     //再利用可能なcellオブジェクトを作成
