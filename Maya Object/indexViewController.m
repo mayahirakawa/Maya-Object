@@ -10,6 +10,7 @@
 #import "newmakeViewController.h"
 #import "AppDelegate.h"//1117
 #import "editViewController.h"
+#import "customTableViewCell.h"
 @interface indexViewController ()
 
 @end
@@ -24,6 +25,35 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
+    // デリゲートメソッドをこのクラスで実装する
+    self.tableview.delegate = self;
+    self.tableview.dataSource = self;
+    
+    
+    // カスタマイズしたセルをテーブルビューにセット
+    UINib *nib = [UINib nibWithNibName:TableViewCustomCellIdentifier bundle:nil];
+    [self.tableview registerNib:nib forCellReuseIdentifier:@"Cell"];
+    
+    //並び替えをしていない時はマイナス１
+    _select_buttonIndex = -1;
+    
+    AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication] delegate];//117
+    
+    app.sortno = _select_buttonIndex;
+    
+}
+
+
+
+#pragma mark - UITableViewDelegate methods
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return [customTableViewCell rowHeight];
+}
+
   
 //    self.movieadd.delegate = self;
 //
@@ -88,7 +118,7 @@
 //   //ナビゲーションのバー？にタイトルを表示する
 //    [[self navigationItem] setTitle:boxname];
 //  
-}
+
 
 
 - (void)viewWillAppear:(BOOL)animated  {
@@ -125,6 +155,81 @@
     //変更可能なデータに変換して代入
     _listArray = Array.mutableCopy;
 
+    //ソート対象となるキーを指定した、NSSortDescriptorの生成
+    NSSortDescriptor *sortDescNumber;
+    
+    // NSSortDescriptorは配列に入れてNSArrayに渡す
+    NSArray *sortDescArray;
+    
+    NSArray *sortArray;
+    
+    
+    switch (app.sortno) {
+        case 0:
+            NSLog(@"▲星が多い順");
+            sortDescNumber = [[NSSortDescriptor alloc] initWithKey:@"review" ascending:NO];
+            
+            
+            sortDescArray = [NSArray arrayWithObjects:sortDescNumber, nil];
+            
+            // ソートの実行
+            sortArray = [_listArray sortedArrayUsingDescriptors:sortDescArray];
+            
+            break;
+        case 1:
+            NSLog(@"▼星が少ない順");
+            
+            sortDescNumber = [[NSSortDescriptor alloc] initWithKey:@"review" ascending:YES];
+            
+            
+            sortDescArray = [NSArray arrayWithObjects:sortDescNumber, nil];
+            
+            // ソートの実行
+            sortArray = [_listArray sortedArrayUsingDescriptors:sortDescArray];
+            
+            
+            break;
+        case 2:
+            NSLog(@"△数字が大きい順");
+            
+            sortDescNumber = [[NSSortDescriptor alloc] initWithKey:@"point" ascending:NO];
+            
+            
+            sortDescArray = [NSArray arrayWithObjects:sortDescNumber, nil];
+            
+            // ソートの実行
+            sortArray = [_listArray sortedArrayUsingDescriptors:sortDescArray];
+            
+            
+            break;
+        case 3:
+            NSLog(@"▽数字が小さい順");
+            
+            sortDescNumber = [[NSSortDescriptor alloc] initWithKey:@"point" ascending:YES];
+            
+            
+            sortDescArray = [NSArray arrayWithObjects:sortDescNumber, nil];
+            
+            // ソートの実行
+            sortArray = [_listArray sortedArrayUsingDescriptors:sortDescArray];
+            
+            
+            
+            break;
+            
+        default:
+            NSLog(@"何か押されました");
+            sortArray = _listArray;
+            
+            
+            break;
+            
+    }
+    
+    
+    _listArray = sortArray.mutableCopy;
+
+    
     
     [self.tableview reloadData];
     
@@ -213,24 +318,31 @@
 
 //行に表示するデータの作成
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString *cellIdentifier = @"cell";
+    
+
+ 
+    static NSString *cellIdentifier = @"Cell";
     //再利用可能なcellオブジェクトを作成
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:
+    customTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:
                              cellIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:
+        cell = [[customTableViewCell alloc] initWithStyle:
                 UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
+   
+    //cell.textLabel.text = @"A";
     cell.textLabel.text = [NSString stringWithFormat:@"%@",_listArray[indexPath.row][@"title"]];
+    cell.review = [_listArray[indexPath.row][@"review"] integerValue];
+    
     return cell;
 
-    cell.textLabel.text = [NSString stringWithFormat:@"%d",_listArray[indexPath.row][@"point"]];
-    return cell;
+    //cell.textLabel.text = [NSString stringWithFormat:@"%d",_listArray[indexPath.row][@"point"]];
+    //return cell;
     
     //星をテーブルビューに表示させたいが出来ていない。
     
     
-    cell.imageView.image = [UIImage imageNamed:_listArray[indexPath.row][@"picture"]];
+    //cell.imageView.image = [UIImage imageNamed:_listArray[indexPath.row][@"picture"]];
     
 }
 
@@ -240,6 +352,7 @@ indexpath{
     NSLog(@"Tap:%d",indexpath.row);
     editViewController　*evc = [self.storyboard instantiateViewControllerWithIdentifier:@"editViewController"];
      evc.select_num = indexpath.row;
+     evc.sortno = _select_buttonIndex;
     [[self navigationController] pushViewController:evc animated:YES];
     
 }
@@ -271,14 +384,105 @@ indexpath{
         [actionSheet addButtonWithTitle:@"▼星が少ない順"];
         [actionSheet addButtonWithTitle:@"△数字が大きい順"];
         [actionSheet addButtonWithTitle:@"▽数字が小さい順"];
+       
         [actionSheet addButtonWithTitle:@"キャンセル"];
-        [actionSheet setDestructiveButtonIndex:4];
+        //[actionSheet setDestructiveButtonIndex:4];
         [actionSheet setCancelButtonIndex:4];
         [actionSheet showInView:self.view];
         
+        
+        
+        
+        
+        
+        
+        
+       }
 }
-}
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
+    //ソート対象となるキーを指定した、NSSortDescriptorの生成
+    NSSortDescriptor *sortDescNumber;
+    
+    // NSSortDescriptorは配列に入れてNSArrayに渡す
+    NSArray *sortDescArray;
+    
+    NSArray *sortArray;
+    
+    
+    switch (buttonIndex) {
+        case 0:
+            NSLog(@"▲星が多い順");
+            sortDescNumber = [[NSSortDescriptor alloc] initWithKey:@"review" ascending:NO];
+            
+            
+            sortDescArray = [NSArray arrayWithObjects:sortDescNumber, nil];
+            
+            // ソートの実行
+            sortArray = [_listArray sortedArrayUsingDescriptors:sortDescArray];
+            
+            break;
+        case 1:
+            NSLog(@"▼星が少ない順");
+            
+            sortDescNumber = [[NSSortDescriptor alloc] initWithKey:@"review" ascending:YES];
+            
+            
+            sortDescArray = [NSArray arrayWithObjects:sortDescNumber, nil];
+            
+            // ソートの実行
+            sortArray = [_listArray sortedArrayUsingDescriptors:sortDescArray];
 
+           
+            break;
+        case 2:
+            NSLog(@"△数字が大きい順");
+            
+            sortDescNumber = [[NSSortDescriptor alloc] initWithKey:@"point" ascending:NO];
+            
+            
+            sortDescArray = [NSArray arrayWithObjects:sortDescNumber, nil];
+            
+            // ソートの実行
+            sortArray = [_listArray sortedArrayUsingDescriptors:sortDescArray];
+
+            
+            break;
+        case 3:
+            NSLog(@"▽数字が小さい順");
+            
+            sortDescNumber = [[NSSortDescriptor alloc] initWithKey:@"point" ascending:YES];
+            
+            
+            sortDescArray = [NSArray arrayWithObjects:sortDescNumber, nil];
+            
+            // ソートの実行
+            sortArray = [_listArray sortedArrayUsingDescriptors:sortDescArray];
+            
+
+            
+            break;
+            
+        default:
+            NSLog(@"何か押されました");
+            sortArray = _listArray;
+
+            
+            break;
+            
+    }
+    
+    AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    app.sortno = buttonIndex;
+    _select_buttonIndex = buttonIndex;
+
+    _listArray = sortArray.mutableCopy;
+    
+
+    [self.tableview reloadData];
+
+
+}
 -(NSString *)returnBoxName:(int)boxNumber{
     NSString *boxName;
     

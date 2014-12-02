@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+static NSString * const TableViewCustomCellIdentifier = @"customcell";
 
 @interface indexViewController : UIViewController<UITabBarDelegate,UIActionSheetDelegate,UITableViewDataSource,UITableViewDelegate>
 {
     NSMutableArray *_listArray; //メンバ変数宣言
-    
+    int _select_buttonIndex;
 }
 @property (nonatomic,assign) int first_select_num;
 @property (weak, nonatomic) IBOutlet UITabBar *movieadd;

@@ -42,16 +42,17 @@
     _twinkleflag4 = NO;
     _twinkleflag5 = NO;
    
+    //appに入っている変数を取り出せる
+    AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    //セカンドナムをひっぱる
+    NSLog(@"%d",app.second_select_num);
 
-  
-    
-    
     //ユーーザーデフォルトからデータを取り出す
     //宣言
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSString *boxname = @"favoritelist";
     //グローバ変数を扱うオブジェクト
-    AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+
     //番号にそった名前を代入
     boxname = [self returnBoxName:app.second_select_num];
     //保存されたデータを取り出す
@@ -61,10 +62,92 @@
     //初期化
     if (_listArray == nil) {
         _listArray = [[NSMutableArray alloc] init];
-        
-      
     
-}
+    }
+    
+    if (_library ==nil) {
+            _library = [[ALAssetsLibrary alloc]init];
+
+        
+    }
+    
+    //ソート対象となるキーを指定した、NSSortDescriptorの生成
+    NSSortDescriptor *sortDescNumber;
+    
+    // NSSortDescriptorは配列に入れてNSArrayに渡す
+    NSArray *sortDescArray;
+    
+    NSArray *sortArray;
+    
+    
+    
+    
+    switch (self.sortno) {
+        case 0:
+            NSLog(@"▲星が多い順");
+            sortDescNumber = [[NSSortDescriptor alloc] initWithKey:@"review" ascending:NO];
+            
+            
+            sortDescArray = [NSArray arrayWithObjects:sortDescNumber, nil];
+            
+            // ソートの実行
+            sortArray = [_listArray sortedArrayUsingDescriptors:sortDescArray];
+            
+            break;
+        case 1:
+            NSLog(@"▼星が少ない順");
+            
+            sortDescNumber = [[NSSortDescriptor alloc] initWithKey:@"review" ascending:YES];
+            
+            
+            sortDescArray = [NSArray arrayWithObjects:sortDescNumber, nil];
+            
+            // ソートの実行
+            sortArray = [_listArray sortedArrayUsingDescriptors:sortDescArray];
+            
+            
+            break;
+        case 2:
+            NSLog(@"△数字が大きい順");
+            
+            sortDescNumber = [[NSSortDescriptor alloc] initWithKey:@"point" ascending:NO];
+            
+            
+            sortDescArray = [NSArray arrayWithObjects:sortDescNumber, nil];
+            
+            // ソートの実行
+            sortArray = [_listArray sortedArrayUsingDescriptors:sortDescArray];
+            
+            
+            break;
+        case 3:
+            NSLog(@"▽数字が小さい順");
+            
+            sortDescNumber = [[NSSortDescriptor alloc] initWithKey:@"point" ascending:YES];
+            
+            
+            sortDescArray = [NSArray arrayWithObjects:sortDescNumber, nil];
+            
+            // ソートの実行
+            sortArray = [_listArray sortedArrayUsingDescriptors:sortDescArray];
+            
+            
+            
+            break;
+            
+        default:
+            NSLog(@"何か押されました");
+            sortArray = _listArray;
+            
+            
+            break;
+            
+    }
+    
+    
+    _listArray = sortArray.mutableCopy;
+    
+    
     //ナビゲーションのバー？にタイトルを表示する
     [[self navigationItem] setTitle:_listArray[_select_num][@"title"]];
     //保存されているサブタイトルを表示する
@@ -148,11 +231,16 @@
             
             break;
             
+    
             
         default:
             break;
     }
 
+    //写真が指定されていたら表示
+    [self showPhoto:_listArray[_select_num][@"picture"]];
+    
+    
 //    [[self myimage1] setImage:_listArray[_select_num][@"picture"]];
 //    [[self myimage2] setImage:_listArray[_select_num][@"picture"]];
 //    [[self myimage3] setImage:_listArray[_select_num][@"picture"]];
@@ -167,6 +255,7 @@
 //    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 
     
+
 }
 
 //imageにタップが出来る
@@ -176,6 +265,12 @@
     //touch.view.tagはimageのtag番号を取得する
     NSLog(@"%ld",touch.view.tag);
     NSLog(@"tap");
+    
+    UIImagePickerControllerSourceType sourceType = -1;
+    
+    //イメージピッカーの生成
+    UIImagePickerController *imagePicker = [[UIImagePickerController alloc]init];
+
     
     //NOの時には星が灰色、YESの時には星が黄色
     switch (touch.view.tag) {
@@ -231,10 +326,27 @@
             }
             break;
             
+        case 100:
+            //カメラロールに起動する
+            sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
             
+            //その機能が使えなかったら、処理を中止する。
+            if(![UIImagePickerController isSourceTypeAvailable:sourceType])
+            {
+                return;
+            }
+            
+            
+            imagePicker.sourceType = sourceType;
+            imagePicker.delegate = (id)self;
+            
+            //イメージピッカー表示
+            [self presentViewController:imagePicker animated:YES completion:nil];
+            
+            break;
         default:
             break;
-}
+    }
 }
 
 
@@ -283,7 +395,10 @@ UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"履歴を削除" messa
         
         indexViewController *ivc = [self.storyboard   instantiateViewControllerWithIdentifier:@"indexViewController"];
         
-        [self.navigationController pushViewController:ivc animated:YES];
+        //[self.navigationController pushViewController:ivc animated:YES];
+       
+        //ひとつ前の画面に戻る画面遷移
+        [self.navigationController popViewControllerAnimated:YES];
         
     }
     
@@ -372,7 +487,7 @@ UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"履歴を削除" messa
     [favoritedata setObject:[NSString stringWithFormat:@"%d", starcount]forKey:@"review"];
     
     [favoritedata setObject:self.textview.text forKey:@"comment"];
-    [favoritedata setObject:@"" forKey:@"picture"];
+    [favoritedata setObject:_assetsUrl forKey:@"picture"];
     //グローバ変数を扱うオブジェクト
     AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
@@ -396,4 +511,41 @@ UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"履歴を削除" messa
 
     
 }
+
+//撮影終了後に「use」を押すと呼び出されるメソッド。
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    //カメラライブラリから選んだ写真のURLを取得。
+    _assetsUrl = [(NSURL *)[info objectForKey:@"UIImagePickerControllerReferenceURL"] absoluteString];
+    [self showPhoto:_assetsUrl];
+    
+    [picker dismissViewControllerAnimated:YES completion:nil];  //元の画面に戻る
+}
+
+//assetsから取得した画像を表示する
+-(void)showPhoto:(NSString *)url
+{
+    //URLからALAssetを取得
+    [_library assetForURL:[NSURL URLWithString:url]
+              resultBlock:^(ALAsset *asset) {
+                  
+                  //画像があればYES、無ければNOを返す
+                  if(asset){
+                      NSLog(@"データがあります");
+                      //ALAssetRepresentationクラスのインスタンスの作成
+                      ALAssetRepresentation *assetRepresentation = [asset defaultRepresentation];
+                      
+                      //ALAssetRepresentationを使用して、フルスクリーン用の画像をUIImageに変換
+                      //fullScreenImageで元画像と同じ解像度の写真を取得する。
+                      UIImage *fullscreenImage = [UIImage imageWithCGImage:[assetRepresentation fullScreenImage]];
+                      self.cameraroll.image = fullscreenImage; //イメージをセット
+                  }else{
+                      NSLog(@"データがありません");
+                  }
+                  
+              } failureBlock: nil];
+}
+
+
+
 @end

@@ -11,6 +11,9 @@
 #import "AppDelegate.h"
 //テーブルビューのコメント入力画面に枠をつけるための準備
 #import "QuartzCore/QuartzCore.h"
+//ライブラリーをインポート
+
+
 
 @interface newmakeViewController ()
 //NSUserDefaultsをViewController内で宣言します
@@ -39,10 +42,6 @@
     _twinkleflag3 = NO;
     _twinkleflag4 = NO;
     _twinkleflag5 = NO;
-
-    
-    
-    //カメラロールから写真を選ぶ
     
     
     //textViewに黒色の枠を付ける
@@ -72,10 +71,12 @@
         _listArray = [[NSMutableArray alloc] init];
     
     
+    }
     
     
-    
-}
+    if (_library ==nil) {
+        _library = [[ALAssetsLibrary alloc]init];
+    }
 }
     
 //    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -129,6 +130,12 @@
     NSLog(@"%ld",touch.view.tag);
     NSLog(@"tap");
 
+    UIImagePickerControllerSourceType sourceType = -1;
+    
+    //イメージピッカーの生成
+    UIImagePickerController *imagePicker = [[UIImagePickerController alloc]init];
+
+    
     //NOの時には星が灰色、YESの時には星が黄色
     switch (touch.view.tag) {
         case 1:
@@ -182,10 +189,26 @@
                 _twinkleflag5 = YES;
             }
             break;
-        
+        case 100:
+            //カメラロールに起動する
+            sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
             
+            //その機能が使えなかったら、処理を中止する。
+            if(![UIImagePickerController isSourceTypeAvailable:sourceType])
+            {
+                return;
+            }
+            
+            
+            imagePicker.sourceType = sourceType;
+            imagePicker.delegate = (id)self;
+            
+            //イメージピッカー表示
+            [self presentViewController:imagePicker animated:YES completion:nil];
+            
+            break;
         default:
-        break;
+            break;
 }
     
 //tapされた時に星が黄色になる
@@ -265,7 +288,7 @@
     [favoritedata setObject:[NSString stringWithFormat:@"%d", starcount]forKey:@"review"];
     
     [favoritedata setObject:self.commenttext.text forKey:@"comment"];
-    [favoritedata setObject:@"" forKey:@"picture"];
+    [favoritedata setObject:_assetsUrl forKey:@"picture"];
     //グローバ変数を扱うオブジェクト
     AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
@@ -350,6 +373,40 @@
     
     return boxName;
 
+}
+
+//撮影終了後に「use」を押すと呼び出されるメソッド。
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    //カメラライブラリから選んだ写真のURLを取得。
+    _assetsUrl = [(NSURL *)[info objectForKey:@"UIImagePickerControllerReferenceURL"] absoluteString];
+    [self showPhoto:_assetsUrl];
+    
+    [picker dismissViewControllerAnimated:YES completion:nil];  //元の画面に戻る
+}
+
+//assetsから取得した画像を表示する
+-(void)showPhoto:(NSString *)url
+{
+    //URLからALAssetを取得
+    [_library assetForURL:[NSURL URLWithString:url]
+             resultBlock:^(ALAsset *asset) {
+                 
+                 //画像があればYES、無ければNOを返す
+                 if(asset){
+                     NSLog(@"データがあります");
+                     //ALAssetRepresentationクラスのインスタンスの作成
+                     ALAssetRepresentation *assetRepresentation = [asset defaultRepresentation];
+                     
+                     //ALAssetRepresentationを使用して、フルスクリーン用の画像をUIImageに変換
+                     //fullScreenImageで元画像と同じ解像度の写真を取得する。
+                     UIImage *fullscreenImage = [UIImage imageWithCGImage:[assetRepresentation fullScreenImage]];
+                     self.cameraroll.image = fullscreenImage; //イメージをセット
+                 }else{
+                     NSLog(@"データがありません");
+                 }
+                 
+             } failureBlock: nil];
 }
 
 - (void)didReceiveMemoryWarning {

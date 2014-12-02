@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="-36" id="Toh-qN-e23" customClass="customTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="102"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Toh-qN-e23" id="IfR-Md-N9c">
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VNT-du-oc8">
+                        <rect key="frame" x="8" y="23" width="304" height="56"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="staroff.gif" translatesAutoresizingMaskIntoConstraints="NO" id="UMe-Zd-YA7">
+                                <rect key="frame" x="178" y="26" width="30" height="28"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="staroff.gif" translatesAutoresizingMaskIntoConstraints="NO" id="ns1-vR-RZA">
+                                <rect key="frame" x="216" y="26" width="30" height="28"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="staroff.gif" translatesAutoresizingMaskIntoConstraints="NO" id="xeN-Nj-RLq">
+                                <rect key="frame" x="254" y="26" width="30" height="28"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="staroff.gif" translatesAutoresizingMaskIntoConstraints="NO" id="Ltx-dD-Odk">
+                                <rect key="frame" x="140" y="26" width="30" height="28"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gF9-Bu-NL4">
+                                <rect key="frame" x="0.0" y="-6" width="116" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="staroff.gif" translatesAutoresizingMaskIntoConstraints="NO" id="N1R-pN-ccq">
+                                <rect key="frame" x="102" y="26" width="30" height="28"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </subviews>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="myimage1" destination="N1R-pN-ccq" id="FFs-SI-kUr"/>
+                <outlet property="myimage2" destination="Ltx-dD-Odk" id="ZBx-W8-FjU"/>
+                <outlet property="myimage3" destination="UMe-Zd-YA7" id="OEa-Tz-rvc"/>
+                <outlet property="myimage4" destination="ns1-vR-RZA" id="fJT-On-utv"/>
+                <outlet property="myimage5" destination="xeN-Nj-RLq" id="105-j0-KRk"/>
+                <outlet property="myview" destination="VNT-du-oc8" id="yF3-TV-4gX"/>
+                <outlet property="textlabel" destination="gF9-Bu-NL4" id="gnb-uS-oqt"/>
+            </connections>
+            <point key="canvasLocation" x="494" y="-136"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="staroff.gif" width="20" height="20"/>
+    </resources>
+</document>

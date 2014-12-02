@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import <AssetsLibrary/AssetsLibrary.h>
 @interface newmakeViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 {
 
@@ -19,6 +19,9 @@ BOOL _twinkleflag2;
 BOOL _twinkleflag3;
 BOOL _twinkleflag4;
 BOOL _twinkleflag5;
+    
+    NSString *_assetsUrl;    //assetsUrlを格納するインスタンス
+    ALAssetsLibrary *_library;  //ALAssetsLibraryのインスタンス
 }
 @property (weak, nonatomic) IBOutlet UITextField *titletext;
 @property (weak, nonatomic) IBOutlet UITextField *subtitletext;

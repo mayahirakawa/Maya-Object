@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface editViewController : UIViewController
+#import <AssetsLibrary/AssetsLibrary.h>
+@interface editViewController : UIViewController< UITableViewDataSource,UIImagePickerControllerDelegate>
 {
     
     NSMutableArray *_listArray; //メンバ変数宣言
@@ -19,9 +19,14 @@
     BOOL _twinkleflag3;
     BOOL _twinkleflag4;
     BOOL _twinkleflag5;
+    
+    NSString *_assetsUrl;    //assetsUrlを格納するインスタンス
+    ALAssetsLibrary *_library;  //ALAssetsLibraryのインスタンス
+    
 }
 
 @property (nonatomic,assign) int select_num;
+@property (nonatomic,assign) int sortno;
 @property (weak, nonatomic) IBOutlet UITextField *subtitle;
 @property (weak, nonatomic) IBOutlet UITextField *pointtext;
 @property (weak, nonatomic) IBOutlet UIImageView *myimage1;
