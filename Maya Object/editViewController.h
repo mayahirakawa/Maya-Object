@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <AssetsLibrary/AssetsLibrary.h>
+#import <Social/Social.h>
 @interface editViewController : UIViewController< UITableViewDataSource,UIImagePickerControllerDelegate>
 {
     
@@ -27,6 +28,7 @@
 
 @property (nonatomic,assign) int select_num;
 @property (nonatomic,assign) int sortno;
+@property (nonatomic,retain) NSString *searchKeyword;
 @property (weak, nonatomic) IBOutlet UITextField *subtitle;
 @property (weak, nonatomic) IBOutlet UITextField *pointtext;
 @property (weak, nonatomic) IBOutlet UIImageView *myimage1;
@@ -36,6 +38,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *myimage5;
 @property (weak, nonatomic) IBOutlet UITextView *textview;
 @property (weak, nonatomic) IBOutlet UIImageView *cameraroll;
+@property (weak, nonatomic) IBOutlet UIButton *Share;
 
 //@property(nonatomic,assign) NSString *listKey;
 @property(nonatomic,assign) NSString *listName;
@@ -46,6 +49,7 @@
 - (IBAction)tapdelete:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *update;
 - (IBAction)tapupdate:(id)sender;
+- (IBAction)tapShare:(id)sender;
 
 
 

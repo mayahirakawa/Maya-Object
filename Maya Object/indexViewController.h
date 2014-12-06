@@ -12,6 +12,7 @@ static NSString * const TableViewCustomCellIdentifier = @"customcell";
 @interface indexViewController : UIViewController<UITabBarDelegate,UIActionSheetDelegate,UITableViewDataSource,UITableViewDelegate>
 {
     NSMutableArray *_listArray; //メンバ変数宣言
+    NSString *_searchKeyword;
     int _select_buttonIndex;
 }
 @property (nonatomic,assign) int first_select_num;
@@ -19,6 +20,8 @@ static NSString * const TableViewCustomCellIdentifier = @"customcell";
 @property (weak, nonatomic) IBOutlet UITabBarItem *moviechange;
 @property (weak, nonatomic) IBOutlet UITableView *tableview;
 @property (weak, nonatomic) IBOutlet UILabel *nolistlabel;
+- (IBAction)tapSearch:(id)sender;
+@property (weak, nonatomic) IBOutlet UITextField *searchtextfiled;
 
 
 @end

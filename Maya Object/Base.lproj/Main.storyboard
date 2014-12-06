@@ -13,7 +13,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Hu5-C6-2Q1">
-                                <rect key="frame" x="155" y="104" width="119" height="64"/>
+                                <rect key="frame" x="160" y="95" width="119" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="open12.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -23,7 +23,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="FpH-NO-lK1">
-                                <rect key="frame" x="49" y="222" width="64" height="67"/>
+                                <rect key="frame" x="55" y="210" width="64" height="67"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="song.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -33,7 +33,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="4hc-Gu-8f1">
-                                <rect key="frame" x="182" y="225" width="64" height="64"/>
+                                <rect key="frame" x="187" y="210" width="64" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="tea.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -43,7 +43,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="SPL-Ob-DOi">
-                                <rect key="frame" x="49" y="357" width="64" height="64"/>
+                                <rect key="frame" x="55" y="337" width="64" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="airplane105.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -53,7 +53,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="2rX-5F-Nih">
-                                <rect key="frame" x="199" y="376" width="32" height="33"/>
+                                <rect key="frame" x="203" y="352" width="32" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="like_outline-64.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -62,22 +62,22 @@
                                     <action selector="tapother:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="bop-bu-CIH"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="JiY-Ca-WXy">
+                                <rect key="frame" x="55" y="95" width="64" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="video71.png"/>
+                                <connections>
+                                    <action selector="tapmovie:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="HP5-d6-buw"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="W0K-Jq-cDN">
-                                <rect key="frame" x="182" y="476" width="64" height="64"/>
+                                <rect key="frame" x="187" y="419" width="64" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="about-26.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="tapinformation:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="wvh-Cz-5CE"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="JiY-Ca-WXy">
-                                <rect key="frame" x="49" y="110" width="64" height="64"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="video71.png"/>
-                                <connections>
-                                    <action selector="tapmovie:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="HP5-d6-buw"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -107,6 +107,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="IqF-ro-VJP">
+                                <rect key="frame" x="0.0" y="138" width="320" height="410"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <label key="tableFooterView" opaque="NO" userInteractionEnabled="NO" alpha="0.0" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="　　　まだリストはありません" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="sQl-FL-fne" userLabel="まだリストはありません">
+                                    <rect key="frame" x="0.0" y="118" width="320" height="343"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <sections/>
+                            </tableView>
                             <tabBar contentMode="scaleToFill" id="ZJp-ML-As0">
                                 <rect key="frame" x="0.0" y="519" width="320" height="49"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -116,24 +129,14 @@
                                     <tabBarItem tag="1" title="並び替え" image="three6@2x.png" id="o4d-Jw-GHg"/>
                                 </items>
                             </tabBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="IqF-ro-VJP">
-                                <rect key="frame" x="0.0" y="118" width="320" height="401"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <sections/>
-                            </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="　　　まだリストはありません" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="sQl-FL-fne" userLabel="まだリストはありません">
-                                <rect key="frame" x="0.0" y="118" width="320" height="343"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="タイトル検索" textAlignment="center" minimumFontSize="17" id="8ON-yQ-EHC">
-                                <rect key="frame" x="16" y="87" width="288" height="30"/>
+                                <rect key="frame" x="16" y="107" width="288" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="webSearch"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="search"/>
+                                <connections>
+                                    <action selector="tapSearch:" destination="SZ9-cn-abM" eventType="editingDidEndOnExit" id="t1x-Pt-89M"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -141,12 +144,13 @@
                     <connections>
                         <outlet property="movieadd" destination="ZJp-ML-As0" id="R8F-mG-7dB"/>
                         <outlet property="nolistlabel" destination="sQl-FL-fne" id="hPW-mF-FVk"/>
+                        <outlet property="searchtextfiled" destination="8ON-yQ-EHC" id="P8v-Gd-1Ez"/>
                         <outlet property="tableview" destination="IqF-ro-VJP" id="rOy-Kb-Bi5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iKV-I7-Ffh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2500" y="67"/>
+            <point key="canvasLocation" x="-2514" y="73"/>
         </scene>
         <!--Edit View Controller-->
         <scene sceneID="6l2-sB-Exq">
@@ -206,6 +210,10 @@
                                     <action selector="tapdelete:" destination="GZs-f5-Cvb" eventType="touchUpInside" id="Wwe-b9-WKm"/>
                                 </connections>
                             </button>
+                            <imageView tag="100" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noimage.gif" id="Bw2-Rj-XwM">
+                                <rect key="frame" x="88" y="169" width="145" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="xS0-VX-yvT">
                                 <rect key="frame" x="258" y="67" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -216,14 +224,21 @@
                                     <action selector="tapupdate:" destination="GZs-f5-Cvb" eventType="touchUpInside" id="w7C-42-rOe"/>
                                 </connections>
                             </button>
-                            <imageView tag="100" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noimage.gif" id="Bw2-Rj-XwM">
-                                <rect key="frame" x="88" y="169" width="145" height="128"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="KlG-6G-Zcv">
+                                <rect key="frame" x="163" y="67" width="40" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
+                                <state key="normal" title="共有">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="tapShare:" destination="GZs-f5-Cvb" eventType="touchUpInside" id="5yz-FU-ou7"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="Share" destination="KlG-6G-Zcv" id="MWL-Yd-6Aq"/>
                         <outlet property="cameraroll" destination="Bw2-Rj-XwM" id="FhU-Yf-f0b"/>
                         <outlet property="delete" destination="4ha-rJ-7XP" id="fQM-Uj-41s"/>
                         <outlet property="myimage1" destination="b4x-n9-IRS" id="3kv-Ir-vIw"/>

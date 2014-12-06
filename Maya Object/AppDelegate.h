@@ -12,8 +12,9 @@
 
 @property (strong, nonatomic) UIWindow *window;
 //グローバル変数を宣言　どこでも数字を保持できる変数
-@property (nonatomic,assign) int second_select_num;//1117
-@property (nonatomic,assign) int sortno;//1117
+@property (nonatomic,assign) int second_select_num;
+@property (nonatomic,assign) int sortno;
+@property (nonatomic,retain) NSString *searchKeyword;
 //@property(nonatomic,assign) NSString *boxName;
 
 

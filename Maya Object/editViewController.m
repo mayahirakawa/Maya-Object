@@ -67,9 +67,12 @@
     
     if (_library ==nil) {
             _library = [[ALAssetsLibrary alloc]init];
-
         
     }
+    
+//    if (_searchKeyword ==nil) {
+//        _searchKeyword = [[NSString alloc]init];
+//    }
     
     //ソート対象となるキーを指定した、NSSortDescriptorの生成
     NSSortDescriptor *sortDescNumber;
@@ -142,10 +145,33 @@
             
             break;
             
+            
+                      
     }
     
     
     _listArray = sortArray.mutableCopy;
+    
+    
+    //前の画面で検索した字をもってくる
+    NSString *searchKeyword = app.searchKeyword;
+    
+    NSArray *checkarry = _listArray.copy;
+    
+    if (searchKeyword != nil) {
+        
+        
+        //tmp １つずつ取り出す
+        
+        for (NSDictionary *tmp in checkarry) {
+            
+            NSRange range = [tmp[@"title"] rangeOfString:searchKeyword];
+            if (range.location == NSNotFound) {
+                //リストアレイからいらないものを削除
+                [_listArray removeObject:tmp];
+            }
+        }
+    }
     
     
     //ナビゲーションのバー？にタイトルを表示する
@@ -479,6 +505,9 @@ UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"履歴を削除" messa
         starcount++;
     }
     
+    if (_assetsUrl == nil) {
+        _assetsUrl = @"";
+    }
     
     //新しい箱に置き換える
     [favoritedata setObject:_listArray[_select_num][@"title"] forKey:@"title"];
@@ -511,6 +540,75 @@ UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"履歴を削除" messa
 
     
 }
+
+- (IBAction)tapShare:(id)sender {
+//    
+//    NSString *message; //シェアしたいメッセージ
+//    NSURL *url;//シェアしたいURL
+//    UIImage *myImage;
+//    
+//    
+//    message = @"my recommendation.";
+//    url = [NSURL URLWithString:@"http://google.com"];
+//    myImage = [UIImage imageNamed:@"bluem.jpg"];
+//    
+//    //todo:配列に画像ファイルも含める
+//    
+//    //アクティビティビューに渡す情報を配列に格納
+//    NSArray *actItems = @[message,url,myImage];//この配列には画像セットも可能
+//    
+//    //アクティビティビューの作成
+//    
+//    UIActivityViewController *activityView =
+//    [[UIActivityViewController alloc] initWithActivityItems:
+//     actItems applicationActivities:nil];
+//    //モーダル処理でアクティビティヴビューを表示
+//    [self presentViewController:activityView animated:YES completion:nil];
+    //Facebookボタンをタップ時
+   
+    NSString *textToShare = @"my recommendation";
+    UIImage *imageToShare = [self screenshotWithView:self.view];
+    NSArray *itemsToShare = @[textToShare, imageToShare];
+    UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:itemsToShare applicationActivities:nil];
+    activityVC.excludedActivityTypes = @[UIActivityTypePrint, UIActivityTypeCopyToPasteboard, UIActivityTypeAssignToContact, UIActivityTypeSaveToCameraRoll]; //or whichever you don't need
+    [self presentViewController:activityVC animated:YES completion:nil];
+    //現在作成した地図のスクリーンショットを作成
+   // UIImage *favoritescreen = [self screenshotWithView:self.view];
+    
+
+   
+    
+}
+
+//スクリーンショットを取る
+- (UIImage *)screenshotWithView:(UIView *)view
+{
+    CGSize imageSize = [view bounds].size;
+    if (NULL != UIGraphicsBeginImageContextWithOptions)
+        UIGraphicsBeginImageContextWithOptions(imageSize, NO, 0);
+    else
+        UIGraphicsBeginImageContext(imageSize);
+    
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSaveGState(context);
+    CGContextTranslateCTM(context, [view center].x, [view center].y);
+    CGContextConcatCTM(context, [view transform]);
+    CGContextTranslateCTM(context,
+                          -[view bounds].size.width * [[view layer] anchorPoint].x - view.frame.origin.x,
+                          -[view bounds].size.height * [[view layer] anchorPoint].y - view.frame.origin.y);
+    
+    [[view layer] renderInContext:context];
+    
+    CGContextRestoreGState(context);
+    
+    // Retrieve the screenshot image
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    
+    return image;
+}
+
 
 //撮影終了後に「use」を押すと呼び出されるメソッド。
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info

@@ -77,8 +77,14 @@
     if (_library ==nil) {
         _library = [[ALAssetsLibrary alloc]init];
     }
-}
+ 
     
+    
+    // キーボードが表示されたときのNotificationをうけとります。（後で）
+    [self registerForKeyboardNotifications];
+}
+
+
 //    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 //    NSMutableDictionary *favoritedata= [[NSMutableDictionary alloc]init];
 //
@@ -119,9 +125,36 @@
 //
 //}
 //
-//    
+// キーボードが表示された時に画面を動かす
+- (void)registerForKeyboardNotifications
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWasShown:)
+                                                 name:UIKeyboardDidShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillBeHidden:)
+                                                 name:UIKeyboardWillHideNotification object:nil];
+}
+- (void)keyboardWasShown:(NSNotification*)aNotification
+{
+    CGPoint scrollPoint = CGPointMake(0.0,200.0);
+    [_textview setContentOffset:scrollPoint animated:YES];
+    }
 
-    //imageにタップが出来る
+- (void)keyboardWillBeHidden:(NSNotification*)aNotification
+{
+    [_textview setContentOffset:CGPointZero animated:YES];
+    
+   }
+
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
+}
+
+
+//imageにタップが出来る
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
    
@@ -278,6 +311,12 @@
     
     if (_twinkleflag5) {
         starcount++;
+   
+    
+    }
+    
+    if (_assetsUrl == nil) {
+        _assetsUrl = @"";
     }
 
 

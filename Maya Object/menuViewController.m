@@ -8,7 +8,7 @@
 
 #import "menuViewController.h"
 #import "indexViewController.h"
-
+#import "AppDelegate.h"
 @interface menuViewController ()
 
 @end
@@ -18,6 +18,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+}
+//画面開いた時
+- (void)viewWillAppear:(BOOL)animated  {
+
+    AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication] delegate];//117
+    //searchKeywordのリセット
+    app.searchKeyword = nil;
+
 }
 
 - (void)didReceiveMemoryWarning {

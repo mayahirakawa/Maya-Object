@@ -43,6 +43,8 @@
     
     app.sortno = _select_buttonIndex;
     
+    _searchKeyword =@"";
+
 }
 
 
@@ -131,9 +133,6 @@
     NSLog(@"%d",self.first_select_num);
     
     
-    
-   
-    
         //appに入っている変数を取り出せる
     AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication] delegate];//117
     //appのセカンドセレクトナムにファーストセレクトナムの数字を代入
@@ -144,6 +143,8 @@
         app.second_select_num = self.first_select_num;//117
         
     }
+    
+    _searchKeyword = app.searchKeyword;
     NSString *num = [NSString stringWithFormat:@"%d",app.second_select_num];
     boxname = [self returnBoxName:app.second_select_num];
     
@@ -228,8 +229,27 @@
     
     
     _listArray = sortArray.mutableCopy;
-
     
+    
+    //前の画面で検索した字をもってくる
+    NSString *searchKeyword = app.searchKeyword;
+    
+    if (searchKeyword != nil) {
+    
+        NSArray *checkarry = _listArray.copy;
+        //tmp １つずつ取り出す
+        for (NSDictionary *tmp in checkarry) {
+            
+            NSRange range = [tmp[@"title"] rangeOfString:searchKeyword];
+            if (range.location == NSNotFound) {
+                //リストアレイからいらないものを削除
+                [_listArray removeObject:tmp];
+
+        
+            }
+    
+        }
+    }
     
     [self.tableview reloadData];
     
@@ -350,9 +370,14 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)
 indexpath{
     NSLog(@"Tap:%d",indexpath.row);
+    //次の画面に行った時に何を検索したかが分かる
+    AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication] delegate];//117
+    app.searchKeyword = _searchKeyword;
+    
     editViewController　*evc = [self.storyboard instantiateViewControllerWithIdentifier:@"editViewController"];
      evc.select_num = indexpath.row;
      evc.sortno = _select_buttonIndex;
+    
     [[self navigationController] pushViewController:evc animated:YES];
     
 }
@@ -389,12 +414,6 @@ indexpath{
         //[actionSheet setDestructiveButtonIndex:4];
         [actionSheet setCancelButtonIndex:4];
         [actionSheet showInView:self.view];
-        
-        
-        
-        
-        
-        
         
         
        }
@@ -478,7 +497,7 @@ indexpath{
 
     _listArray = sortArray.mutableCopy;
     
-
+     //検索結果を反映
     [self.tableview reloadData];
 
 
@@ -531,4 +550,25 @@ indexpath{
 
 
 
+- (IBAction)tapSearch:(id)sender {
+    //右のやつを入れる(代入）検索したい文字が入る
+   _searchKeyword = self.searchtextfiled.text;
+    
+    NSArray *checkarry = _listArray.copy;
+    //tmp １つずつ取り出す
+    for (NSDictionary *tmp in checkarry) {
+        
+        NSRange range = [tmp[@"title"] rangeOfString:_searchKeyword];
+        if (range.location == NSNotFound) {
+    //リストアレイからいらないものを削除
+            [_listArray removeObject:tmp];
+        }
+    }
+    
+    
+    //検索結果を反映
+    [self.tableview reloadData];
+   
+    
+}
 @end
