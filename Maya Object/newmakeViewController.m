@@ -82,6 +82,19 @@
     
     // キーボードが表示されたときのNotificationをうけとります。（後で）
     [self registerForKeyboardNotifications];
+
+    
+    // UIPanGestureRecognizer をインスタンス化します。また、イベント発生時に呼び出すメソッドを selector で指定します。
+    UISwipeGestureRecognizer* swipeDownGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(selfSwipeDownGesture:)];
+    
+    // 下スワイプのイベントを指定します。
+    swipeDownGesture.direction = UISwipeGestureRecognizerDirectionDown;
+    
+    // Viewへ関連付けします。
+    [self.view addGestureRecognizer:swipeDownGesture];
+
+
+
 }
 
 
@@ -137,9 +150,64 @@
 }
 - (void)keyboardWasShown:(NSNotification*)aNotification
 {
-    CGPoint scrollPoint = CGPointMake(0.0,200.0);
-    [_textview setContentOffset:scrollPoint animated:YES];
-    }
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.3];
+    
+    _textview.frame = CGRectMake(_textview.frame.origin.x, _textview.frame.origin.y - 230, _textview.frame.size.width , _textview.frame.size.height);
+    _titletext.frame = CGRectMake(_titletext.frame.origin.x, _titletext.frame.origin.y - 200, _titletext.frame.size.width , _titletext.frame.size.height);
+     _subtitletext.frame = CGRectMake(_subtitletext.frame.origin.x, _subtitletext.frame.origin.y - 200, _subtitletext.frame.size.width , _subtitletext.frame.size.height);
+    _pointtext.frame = CGRectMake(_pointtext.frame.origin.x, _pointtext.frame.origin.y - 200, _pointtext.frame.size.width , _pointtext.frame.size.height);
+     _myimage1.frame = CGRectMake(_myimage1.frame.origin.x, _myimage1.frame.origin.y - 200, _myimage1.frame.size.width , _myimage1.frame.size.height);
+    _myimage2.frame = CGRectMake(_myimage2.frame.origin.x, _myimage2.frame.origin.y - 200, _myimage2.frame.size.width , _myimage2.frame.size.height);
+    _myimage3.frame = CGRectMake(_myimage3.frame.origin.x, _myimage3.frame.origin.y - 200, _myimage3.frame.size.width , _myimage3.frame.size.height);
+    _myimage4.frame = CGRectMake(_myimage4.frame.origin.x, _myimage4.frame.origin.y - 200, _myimage4.frame.size.width , _myimage4.frame.size.height);
+     _myimage5.frame = CGRectMake(_myimage5.frame.origin.x, _myimage5.frame.origin.y - 200, _myimage5.frame.size.width , _myimage5.frame.size.height);
+     _cameraroll.frame = CGRectMake(_cameraroll.frame.origin.x, _cameraroll.frame.origin.y - 330, _cameraroll.frame.size.width , _cameraroll.frame.size.height);
+    
+    
+    [UIView commitAnimations];
+
+   
+    
+
+
+}
+
+
+
+// 下スワイプされた時に実行されるメソッド、selectorで指定します。
+- (void)selfSwipeDownGesture:(UISwipeGestureRecognizer *)sender {
+    // 下スワイプされた時にログに表示
+    NSLog(@"Notice Down Gesture");
+    [_textview resignFirstResponder];
+    
+    
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.3];
+    
+    
+    
+    _textview.frame = CGRectMake(_textview.frame.origin.x, _textview.frame.origin.y + 230, _textview.frame.size.width , _textview.frame.size.height);
+    _titletext.frame = CGRectMake(_titletext.frame.origin.x, _titletext.frame.origin.y + 200, _titletext.frame.size.width , _titletext.frame.size.height);
+    _subtitletext.frame = CGRectMake(_subtitletext.frame.origin.x, _subtitletext.frame.origin.y + 200, _subtitletext.frame.size.width , _subtitletext.frame.size.height);
+    _pointtext.frame = CGRectMake(_pointtext.frame.origin.x, _pointtext.frame.origin.y + 200, _pointtext.frame.size.width , _pointtext.frame.size.height);
+    _myimage1.frame = CGRectMake(_myimage1.frame.origin.x, _myimage1.frame.origin.y + 200, _myimage1.frame.size.width , _myimage1.frame.size.height);
+    _myimage2.frame = CGRectMake(_myimage2.frame.origin.x, _myimage2.frame.origin.y + 200, _myimage2.frame.size.width , _myimage2.frame.size.height);
+    _myimage3.frame = CGRectMake(_myimage3.frame.origin.x, _myimage3.frame.origin.y + 200, _myimage3.frame.size.width , _myimage3.frame.size.height);
+    _myimage4.frame = CGRectMake(_myimage4.frame.origin.x, _myimage4.frame.origin.y + 200, _myimage4.frame.size.width , _myimage4.frame.size.height);
+    _myimage5.frame = CGRectMake(_myimage5.frame.origin.x, _myimage5.frame.origin.y + 200, _myimage5.frame.size.width , _myimage5.frame.size.height);
+    _cameraroll.frame = CGRectMake(_cameraroll.frame.origin.x, _cameraroll.frame.origin.y + 330, _cameraroll.frame.size.width , _cameraroll.frame.size.height);
+
+    
+    
+    
+    [UIView commitAnimations];
+    
+    
+    
+}
+
+
 
 - (void)keyboardWillBeHidden:(NSNotification*)aNotification
 {
@@ -326,7 +394,7 @@
     [favoritedata setObject:self.pointtext.text forKey:@"point"];
     [favoritedata setObject:[NSString stringWithFormat:@"%d", starcount]forKey:@"review"];
     
-    [favoritedata setObject:self.commenttext.text forKey:@"comment"];
+    [favoritedata setObject:self.textview.text forKey:@"comment"];
     [favoritedata setObject:_assetsUrl forKey:@"picture"];
     //グローバ変数を扱うオブジェクト
     AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication] delegate];
@@ -413,6 +481,8 @@
     return boxName;
 
 }
+
+
 
 //撮影終了後に「use」を押すと呼び出されるメソッド。
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info

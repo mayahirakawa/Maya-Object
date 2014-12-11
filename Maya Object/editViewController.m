@@ -145,10 +145,26 @@
             
             break;
             
+    
             
+           
+
                       
     }
     
+   // キーボードが表示されたときのNotificationをうけとります。（後で）
+   [self registerForKeyboardNotifications];
+
+    
+    // UIPanGestureRecognizer をインスタンス化します。また、イベント発生時に呼び出すメソッドを selector で指定します。
+    UISwipeGestureRecognizer* swipeDownGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(selfSwipeDownGesture:)];
+    
+    // 下スワイプのイベントを指定します。
+    swipeDownGesture.direction = UISwipeGestureRecognizerDirectionDown;
+    
+    // Viewへ関連付けします。
+    [self.view addGestureRecognizer:swipeDownGesture];
+
     
     _listArray = sortArray.mutableCopy;
     
@@ -171,6 +187,7 @@
                 [_listArray removeObject:tmp];
             }
         }
+        
     }
     
     
@@ -263,6 +280,11 @@
             break;
     }
 
+    
+    
+   
+    
+    
     //写真が指定されていたら表示
     [self showPhoto:_listArray[_select_num][@"picture"]];
     
@@ -283,6 +305,87 @@
     
 
 }
+
+// キーボードが表示された時に画面を動かす
+- (void)registerForKeyboardNotifications
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWasShown:)
+                                                 name:UIKeyboardDidShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillBeHidden:)
+                                                 name:UIKeyboardWillHideNotification object:nil];
+}
+
+
+
+- (void)keyboardWasShown:(NSNotification*)aNotification
+{
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.3];
+    
+    _textview.frame = CGRectMake(_textview.frame.origin.x, _textview.frame.origin.y - 220, _textview.frame.size.width , _textview.frame.size.height);
+    _subtitle.frame = CGRectMake(_subtitle.frame.origin.x, _subtitle.frame.origin.y - 200, _subtitle.frame.size.width , _subtitle.frame.size.height);
+    _pointtext.frame = CGRectMake(_pointtext.frame.origin.x, _pointtext.frame.origin.y - 200, _pointtext.frame.size.width , _pointtext.frame.size.height);
+    _myimage1.frame = CGRectMake(_myimage1.frame.origin.x, _myimage1.frame.origin.y - 200, _myimage1.frame.size.width , _myimage1.frame.size.height);
+    _myimage2.frame = CGRectMake(_myimage2.frame.origin.x, _myimage2.frame.origin.y - 200, _myimage2.frame.size.width , _myimage2.frame.size.height);
+    _myimage3.frame = CGRectMake(_myimage3.frame.origin.x, _myimage3.frame.origin.y - 200, _myimage3.frame.size.width , _myimage3.frame.size.height);
+    _myimage4.frame = CGRectMake(_myimage4.frame.origin.x, _myimage4.frame.origin.y - 200, _myimage4.frame.size.width , _myimage4.frame.size.height);
+     _myimage5.frame = CGRectMake(_myimage5.frame.origin.x, _myimage5.frame.origin.y - 200, _myimage5.frame.size.width , _myimage5.frame.size.height);
+     _Share.frame = CGRectMake(_Share.frame.origin.x, _Share.frame.origin.y - 200, _Share.frame.size.width , _Share.frame.size.height);
+     _delete.frame = CGRectMake(_delete.frame.origin.x, _delete.frame.origin.y - 200, _delete.frame.size.width , _delete.frame.size.height);
+     _update.frame = CGRectMake(_update.frame.origin.x, _update.frame.origin.y - 200, _update.frame.size.width , _update.frame.size.height);
+    _cameraroll.frame = CGRectMake(_cameraroll.frame.origin.x, _cameraroll.frame.origin.y - 330, _cameraroll.frame.size.width , _cameraroll.frame.size.height);
+    
+    [UIView commitAnimations];
+    
+    
+}
+
+
+
+
+- (void)keyboardWillBeHidden:(NSNotification*)aNotification
+{
+    [_textview setContentOffset:CGPointZero animated:YES];
+    
+}
+
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
+}
+
+
+- (void)selfSwipeDownGesture:(UISwipeGestureRecognizer *)sender {
+    // 下スワイプされた時にログに表示
+    NSLog(@"Notice Down Gesture");
+    [_textview resignFirstResponder];
+
+
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.3];
+    
+    _textview.frame = CGRectMake(_textview.frame.origin.x, _textview.frame.origin.y + 220, _textview.frame.size.width , _textview.frame.size.height);
+    _subtitle.frame = CGRectMake(_subtitle.frame.origin.x, _subtitle.frame.origin.y + 200, _subtitle.frame.size.width , _subtitle.frame.size.height);
+    _pointtext.frame = CGRectMake(_pointtext.frame.origin.x, _pointtext.frame.origin.y + 200, _pointtext.frame.size.width , _pointtext.frame.size.height);
+    _myimage1.frame = CGRectMake(_myimage1.frame.origin.x, _myimage1.frame.origin.y + 200, _myimage1.frame.size.width , _myimage1.frame.size.height);
+    _myimage2.frame = CGRectMake(_myimage2.frame.origin.x, _myimage2.frame.origin.y + 200, _myimage2.frame.size.width , _myimage2.frame.size.height);
+    _myimage3.frame = CGRectMake(_myimage3.frame.origin.x, _myimage3.frame.origin.y + 200, _myimage3.frame.size.width , _myimage3.frame.size.height);
+    _myimage4.frame = CGRectMake(_myimage4.frame.origin.x, _myimage4.frame.origin.y + 200, _myimage4.frame.size.width , _myimage4.frame.size.height);
+    _myimage5.frame = CGRectMake(_myimage5.frame.origin.x, _myimage5.frame.origin.y + 200, _myimage5.frame.size.width , _myimage5.frame.size.height);
+    _Share.frame = CGRectMake(_Share.frame.origin.x, _Share.frame.origin.y + 200, _Share.frame.size.width , _Share.frame.size.height);
+    _delete.frame = CGRectMake(_delete.frame.origin.x, _delete.frame.origin.y + 200, _delete.frame.size.width , _delete.frame.size.height);
+    _update.frame = CGRectMake(_update.frame.origin.x, _update.frame.origin.y + 200, _update.frame.size.width , _update.frame.size.height);
+    _cameraroll.frame = CGRectMake(_cameraroll.frame.origin.x, _cameraroll.frame.origin.y + 330, _cameraroll.frame.size.width , _cameraroll.frame.size.height);
+    
+    [UIView commitAnimations];
+
+
+
+}
+
 
 //imageにタップが出来る
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
@@ -572,10 +675,7 @@ UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"履歴を削除" messa
     UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:itemsToShare applicationActivities:nil];
     activityVC.excludedActivityTypes = @[UIActivityTypePrint, UIActivityTypeCopyToPasteboard, UIActivityTypeAssignToContact, UIActivityTypeSaveToCameraRoll]; //or whichever you don't need
     [self presentViewController:activityVC animated:YES completion:nil];
-    //現在作成した地図のスクリーンショットを作成
-   // UIImage *favoritescreen = [self screenshotWithView:self.view];
     
-
    
     
 }
