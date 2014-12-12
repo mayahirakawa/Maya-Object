@@ -17,7 +17,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+   
+    //バーのカラーカスタマイズ
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];  // バーアイテムカラー
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.211 green:0.8 blue:1.0 alpha:1.000];  // バー背景色
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+
 }
 //画面開いた時
 - (void)viewWillAppear:(BOOL)animated  {

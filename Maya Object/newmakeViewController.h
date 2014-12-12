@@ -19,7 +19,9 @@ BOOL _twinkleflag2;
 BOOL _twinkleflag3;
 BOOL _twinkleflag4;
 BOOL _twinkleflag5;
-    
+
+BOOL _visibleflag;
+
     NSString *_assetsUrl;    //assetsUrlを格納するインスタンス
     ALAssetsLibrary *_library;  //ALAssetsLibraryのインスタンス
 }

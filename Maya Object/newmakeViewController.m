@@ -65,7 +65,8 @@
     //保存されたデータを取り出す
     favorite = [defaults objectForKey:boxname];
     _listArray = favorite.mutableCopy;
-   
+    //テキストビューを感知するもの
+    self.textview.delegate = self;
     //初期化
     if (_listArray == nil) {
         _listArray = [[NSMutableArray alloc] init];
@@ -93,7 +94,7 @@
     // Viewへ関連付けします。
     [self.view addGestureRecognizer:swipeDownGesture];
 
-
+    _visibleflag = YES;    
 
 }
 
@@ -150,6 +151,15 @@
 }
 - (void)keyboardWasShown:(NSNotification*)aNotification
 {
+     [_textview setContentOffset:CGPointZero animated:YES];
+    
+}
+
+    -(BOOL)textViewShouldBeginEditing:(UITextView *)textView
+    {
+        if (_visibleflag) {
+ 
+    
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:0.3];
     
@@ -169,15 +179,21 @@
 
    
     
+            _visibleflag = NO;
 
-
+        }
+        return YES;
 }
 
-
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
+}
 
 // 下スワイプされた時に実行されるメソッド、selectorで指定します。
 - (void)selfSwipeDownGesture:(UISwipeGestureRecognizer *)sender {
     // 下スワイプされた時にログに表示
+    if (!_visibleflag) {
     NSLog(@"Notice Down Gesture");
     [_textview resignFirstResponder];
     
@@ -203,6 +219,8 @@
     
     [UIView commitAnimations];
     
+    _visibleflag = YES;
+    }
     
     
 }
@@ -216,11 +234,11 @@
    }
 
 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    [textField resignFirstResponder];
-    return YES;
-}
-
+//- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+//    [textField resignFirstResponder];
+//    return YES;
+//}
+//
 
 //imageにタップが出来る
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event

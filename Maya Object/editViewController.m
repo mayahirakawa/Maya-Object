@@ -11,6 +11,7 @@
 #import "AppDelegate.h"
 //テーブルビューのコメント入力画面に枠をつけるための準備
 #import "QuartzCore/QuartzCore.h"
+
 @interface editViewController ()
 
 @end
@@ -199,6 +200,8 @@
     [[self pointtext] setText:_listArray[_select_num][@"point"]];
     //保存されているコメントを表示する
     [[self textview] setText:_listArray[_select_num][@"comment"]];
+    
+    self.textview.delegate = self;
     //保存されている星を編集画面にも反映させたいが出来ていない
     NSLog(@"%@",_listArray[_select_num][@"c"]);
    
@@ -287,7 +290,8 @@
     
     //写真が指定されていたら表示
     [self showPhoto:_listArray[_select_num][@"picture"]];
-    
+    //保存ボタンを押された時に空にならないように代入
+    _assetsUrl = _listArray[_select_num][@"picture"];
     
 //    [[self myimage1] setImage:_listArray[_select_num][@"picture"]];
 //    [[self myimage2] setImage:_listArray[_select_num][@"picture"]];
@@ -295,15 +299,12 @@
 //    [[self myimage4] setImage:_listArray[_select_num][@"picture"]];
 //    [[self myimage5] setImage:_listArray[_select_num][@"picture"]];
 //    
-    //バーのカラーカスタマイズ
-    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];  // バーアイテムカラー
-    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.211 green:0.8 blue:1.0 alpha:1.000];  // バー背景色
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+   
 //    [UINavigationBar appearance].titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
 //    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 
     
-
+    _visibleflag = YES;
 }
 
 // キーボードが表示された時に画面を動かす
@@ -321,25 +322,30 @@
 
 - (void)keyboardWasShown:(NSNotification*)aNotification
 {
-    [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration:0.3];
-    
-    _textview.frame = CGRectMake(_textview.frame.origin.x, _textview.frame.origin.y - 220, _textview.frame.size.width , _textview.frame.size.height);
-    _subtitle.frame = CGRectMake(_subtitle.frame.origin.x, _subtitle.frame.origin.y - 200, _subtitle.frame.size.width , _subtitle.frame.size.height);
-    _pointtext.frame = CGRectMake(_pointtext.frame.origin.x, _pointtext.frame.origin.y - 200, _pointtext.frame.size.width , _pointtext.frame.size.height);
-    _myimage1.frame = CGRectMake(_myimage1.frame.origin.x, _myimage1.frame.origin.y - 200, _myimage1.frame.size.width , _myimage1.frame.size.height);
-    _myimage2.frame = CGRectMake(_myimage2.frame.origin.x, _myimage2.frame.origin.y - 200, _myimage2.frame.size.width , _myimage2.frame.size.height);
-    _myimage3.frame = CGRectMake(_myimage3.frame.origin.x, _myimage3.frame.origin.y - 200, _myimage3.frame.size.width , _myimage3.frame.size.height);
-    _myimage4.frame = CGRectMake(_myimage4.frame.origin.x, _myimage4.frame.origin.y - 200, _myimage4.frame.size.width , _myimage4.frame.size.height);
-     _myimage5.frame = CGRectMake(_myimage5.frame.origin.x, _myimage5.frame.origin.y - 200, _myimage5.frame.size.width , _myimage5.frame.size.height);
-     _Share.frame = CGRectMake(_Share.frame.origin.x, _Share.frame.origin.y - 200, _Share.frame.size.width , _Share.frame.size.height);
-     _delete.frame = CGRectMake(_delete.frame.origin.x, _delete.frame.origin.y - 200, _delete.frame.size.width , _delete.frame.size.height);
-     _update.frame = CGRectMake(_update.frame.origin.x, _update.frame.origin.y - 200, _update.frame.size.width , _update.frame.size.height);
-    _cameraroll.frame = CGRectMake(_cameraroll.frame.origin.x, _cameraroll.frame.origin.y - 330, _cameraroll.frame.size.width , _cameraroll.frame.size.height);
-    
-    [UIView commitAnimations];
-    
-    
+//    if (_visibleflag) {
+//
+//    [UIView beginAnimations:nil context:nil];
+//    [UIView setAnimationDuration:0.3];
+//    
+//    
+//   
+//    _textview.frame = CGRectMake(_textview.frame.origin.x, _textview.frame.origin.y - 220, _textview.frame.size.width , _textview.frame.size.height);
+//    _subtitle.frame = CGRectMake(_subtitle.frame.origin.x, _subtitle.frame.origin.y - 200, _subtitle.frame.size.width , _subtitle.frame.size.height);
+//    _pointtext.frame = CGRectMake(_pointtext.frame.origin.x, _pointtext.frame.origin.y - 200, _pointtext.frame.size.width , _pointtext.frame.size.height);
+//    _myimage1.frame = CGRectMake(_myimage1.frame.origin.x, _myimage1.frame.origin.y - 200, _myimage1.frame.size.width , _myimage1.frame.size.height);
+//    _myimage2.frame = CGRectMake(_myimage2.frame.origin.x, _myimage2.frame.origin.y - 200, _myimage2.frame.size.width , _myimage2.frame.size.height);
+//    _myimage3.frame = CGRectMake(_myimage3.frame.origin.x, _myimage3.frame.origin.y - 200, _myimage3.frame.size.width , _myimage3.frame.size.height);
+//    _myimage4.frame = CGRectMake(_myimage4.frame.origin.x, _myimage4.frame.origin.y - 200, _myimage4.frame.size.width , _myimage4.frame.size.height);
+//     _myimage5.frame = CGRectMake(_myimage5.frame.origin.x, _myimage5.frame.origin.y - 200, _myimage5.frame.size.width , _myimage5.frame.size.height);
+//     _Share.frame = CGRectMake(_Share.frame.origin.x, _Share.frame.origin.y - 200, _Share.frame.size.width , _Share.frame.size.height);
+//     _delete.frame = CGRectMake(_delete.frame.origin.x, _delete.frame.origin.y - 200, _delete.frame.size.width , _delete.frame.size.height);
+//     _update.frame = CGRectMake(_update.frame.origin.x, _update.frame.origin.y - 200, _update.frame.size.width , _update.frame.size.height);
+//    _cameraroll.frame = CGRectMake(_cameraroll.frame.origin.x, _cameraroll.frame.origin.y - 330, _cameraroll.frame.size.width , _cameraroll.frame.size.height);
+//    
+//    [UIView commitAnimations];
+//        _visibleflag = NO;
+//    
+//    }
 }
 
 
@@ -351,6 +357,34 @@
     
 }
 
+-(BOOL)textViewShouldBeginEditing:(UITextView *)textView
+{
+    if (_visibleflag) {
+        
+        [UIView beginAnimations:nil context:nil];
+        [UIView setAnimationDuration:0.3];
+        
+        
+        
+        _textview.frame = CGRectMake(_textview.frame.origin.x, _textview.frame.origin.y - 220, _textview.frame.size.width , _textview.frame.size.height);
+        _subtitle.frame = CGRectMake(_subtitle.frame.origin.x, _subtitle.frame.origin.y - 200, _subtitle.frame.size.width , _subtitle.frame.size.height);
+        _pointtext.frame = CGRectMake(_pointtext.frame.origin.x, _pointtext.frame.origin.y - 200, _pointtext.frame.size.width , _pointtext.frame.size.height);
+        _myimage1.frame = CGRectMake(_myimage1.frame.origin.x, _myimage1.frame.origin.y - 200, _myimage1.frame.size.width , _myimage1.frame.size.height);
+        _myimage2.frame = CGRectMake(_myimage2.frame.origin.x, _myimage2.frame.origin.y - 200, _myimage2.frame.size.width , _myimage2.frame.size.height);
+        _myimage3.frame = CGRectMake(_myimage3.frame.origin.x, _myimage3.frame.origin.y - 200, _myimage3.frame.size.width , _myimage3.frame.size.height);
+        _myimage4.frame = CGRectMake(_myimage4.frame.origin.x, _myimage4.frame.origin.y - 200, _myimage4.frame.size.width , _myimage4.frame.size.height);
+        _myimage5.frame = CGRectMake(_myimage5.frame.origin.x, _myimage5.frame.origin.y - 200, _myimage5.frame.size.width , _myimage5.frame.size.height);
+        _Share.frame = CGRectMake(_Share.frame.origin.x, _Share.frame.origin.y - 200, _Share.frame.size.width , _Share.frame.size.height);
+        _delete.frame = CGRectMake(_delete.frame.origin.x, _delete.frame.origin.y - 200, _delete.frame.size.width , _delete.frame.size.height);
+        _update.frame = CGRectMake(_update.frame.origin.x, _update.frame.origin.y - 200, _update.frame.size.width , _update.frame.size.height);
+        _cameraroll.frame = CGRectMake(_cameraroll.frame.origin.x, _cameraroll.frame.origin.y - 330, _cameraroll.frame.size.width , _cameraroll.frame.size.height);
+        
+        [UIView commitAnimations];
+        _visibleflag = NO;
+        
+    }
+    return YES;
+}
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
@@ -360,6 +394,7 @@
 
 - (void)selfSwipeDownGesture:(UISwipeGestureRecognizer *)sender {
     // 下スワイプされた時にログに表示
+    if (!_visibleflag) {
     NSLog(@"Notice Down Gesture");
     [_textview resignFirstResponder];
 
@@ -382,8 +417,8 @@
     
     [UIView commitAnimations];
 
-
-
+        _visibleflag = YES;
+    }
 }
 
 
@@ -637,9 +672,16 @@ UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"履歴を削除" messa
     
     //画面遷移
            
-   indexViewController *ivc = [self.storyboard   instantiateViewControllerWithIdentifier:@"indexViewController"];
    
-    [self.navigationController pushViewController:ivc animated:YES];
+    NSInteger count = self.navigationController.viewControllers.count -2;
+    
+    indexViewController *ivc = [self.navigationController.viewControllers objectAtIndex:count];
+    
+    [self.navigationController popToViewController:ivc animated:YES];
+    
+//    indexViewController *ivc = [self.storyboard   instantiateViewControllerWithIdentifier:@"indexViewController"];
+//   
+//    [self.navigationController pushViewController:ivc animated:YES];
 
     
 }
