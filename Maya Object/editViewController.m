@@ -23,6 +23,13 @@
     //self.newmakeViewController.dataSource = self;
     //self.newmakeViewController.delegate = self;
     
+//    //背景画像を設置
+//    UIImage *backgroundImage  = [UIImage imageNamed:@"G5.png"];
+//    self.view.backgroundColor = [UIColor colorWithPatternImage:backgroundImage];
+//    
+    //背景画像を設置
+    UIImage *backgroundImage  = [UIImage imageNamed:@"水玉ライムブルー.gif"];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:backgroundImage];
     
     //textViewに黒色の枠を付ける
     [[self.textview layer] setCornerRadius:10.0];
@@ -525,30 +532,7 @@ UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"履歴を削除" messa
     
     [alert show];
     
-   //ユーザーデフォルトを使えるようにする
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    //_listArray = [defaults objectForKey:@"_listArray"];
-    //NSMutableDictionary *list = [[NSMutableDictionary alloc]initWithDictionary:_listArray];
-    //消したいデーターをセレクトナムを使って消す
-    [_listArray removeObject:_listArray[_select_num]];
-   
-    NSString *boxname = @"favoritelist";
-    //グローバ変数を扱うオブジェクト
-    AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    //番号にそった名前を代入
-    boxname = [self returnBoxName:app.second_select_num];
-     
-     //選択したセル番号を持ってくる
-     //NSInteger selectindex = indexPath.row;
-     //NSMutableArray *listArray = [[NSMutableArray alloc] initWithArray:_listArray];
-     
-     
-     //_listArray = list;
-     
-     [defaults setObject:_listArray forKey:boxname];
-     [defaults synchronize];
-    
-}
+  }
 
 -(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     
@@ -556,6 +540,31 @@ UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"履歴を削除" messa
     //アラートビューの削除でオッケーが押されたらインデックスに画面遷移
     
     if (buttonIndex == 1) {
+
+        //ユーザーデフォルトを使えるようにする
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        //_listArray = [defaults objectForKey:@"_listArray"];
+        //NSMutableDictionary *list = [[NSMutableDictionary alloc]initWithDictionary:_listArray];
+        //消したいデーターをセレクトナムを使って消す
+        [_listArray removeObject:_listArray[_select_num]];
+        
+        NSString *boxname = @"favoritelist";
+        //グローバ変数を扱うオブジェクト
+        AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+        //番号にそった名前を代入
+        boxname = [self returnBoxName:app.second_select_num];
+        
+        //選択したセル番号を持ってくる
+        //NSInteger selectindex = indexPath.row;
+        //NSMutableArray *listArray = [[NSMutableArray alloc] initWithArray:_listArray];
+        
+        
+        //_listArray = list;
+        
+        [defaults setObject:_listArray forKey:boxname];
+        [defaults synchronize];
+        
+ 
         
         indexViewController *ivc = [self.storyboard   instantiateViewControllerWithIdentifier:@"indexViewController"];
         

@@ -17,10 +17,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-   
+   //背景画像を設置
+    UIImage *backgroundImage  = [UIImage imageNamed:@"open.web.png"];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:backgroundImage];
+    
     //バーのカラーカスタマイズ
+//    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];  // バーアイテムカラー
+//    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.211 green:0.8 blue:1.0 alpha:1.000];  // バー背景色
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];  // バーアイテムカラー
-    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.211 green:0.8 blue:1.0 alpha:1.000];  // バー背景色
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:1 green:0.89 blue:0.09
+                                                        
+alpha:1.000];  // バー背景色
+
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 
 }

@@ -30,6 +30,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+//    //背景画像を設置
+//    UIImage *backgroundImage  = [UIImage imageNamed:@"G2.png"];
+//    self.view.backgroundColor = [UIColor colorWithPatternImage:backgroundImage];
+    
+    //背景画像を設置
+    UIImage *backgroundImage  = [UIImage imageNamed:@"水玉イエロー.gif"];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:backgroundImage];
+
+    
     //評価の星の部分
     self.myimage1.image = [UIImage imageNamed:@"staroff.gif"];
     self.myimage2.image = [UIImage imageNamed:@"staroff.gif"];
@@ -96,6 +105,7 @@
 
     _visibleflag = YES;    
 
+   
 }
 
 

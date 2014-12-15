@@ -45,6 +45,25 @@
     
     _searchKeyword =@"";
 
+ 
+//    // 背景色を透明にしたいUIViewのインスタンスを作成する
+//    UIView *aView = [[UIView alloc] initWithFrame:self.view.frame];
+//    
+//    // opaque属性にNOを設定する事で、背景透過を許可する
+//    aView.opaque = NO;
+//    
+//    // backgroundColorにalpha=0.0fの背景色を設定することで、背景色を透明にしている
+//    aView.backgroundColor = [UIColor colorWithWhite:1.0f alpha:0.0f]; // transparent background.
+//    
+//    // 作成した背景色透明のViewを現在のViewの上に追加する
+//    [self.view addSubview:aView];
+    
+        //背景画像を設置
+        UIImage *backgroundImage  = [UIImage imageNamed:@"bg05_03.gif"];
+        self.view.backgroundColor = [UIColor colorWithPatternImage:backgroundImage];
+    
+
+
 }
 
 
@@ -553,7 +572,91 @@ indexpath{
 - (IBAction)tapSearch:(id)sender {
     //右のやつを入れる(代入）検索したい文字が入る
    _searchKeyword = self.searchtextfiled.text;
+    //UserDefaultからデータを取り出す
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    //保存されたデータを取り出す
+    NSArray *Array = [defaults objectForKey:boxname];
+    //変更可能なデータに変換して代入
+    _listArray = Array.mutableCopy;
     
+    //ソート対象となるキーを指定した、NSSortDescriptorの生成
+    NSSortDescriptor *sortDescNumber;
+    
+    // NSSortDescriptorは配列に入れてNSArrayに渡す
+    NSArray *sortDescArray;
+    
+    NSArray *sortArray;
+    
+    //appに入っている変数を取り出せる
+    AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication] delegate];//117
+
+    
+    switch (app.sortno) {
+        case 0:
+            NSLog(@"▲星が多い順");
+            sortDescNumber = [[NSSortDescriptor alloc] initWithKey:@"review" ascending:NO];
+            
+            
+            sortDescArray = [NSArray arrayWithObjects:sortDescNumber, nil];
+            
+            // ソートの実行
+            sortArray = [_listArray sortedArrayUsingDescriptors:sortDescArray];
+            
+            break;
+        case 1:
+            NSLog(@"▼星が少ない順");
+            
+            sortDescNumber = [[NSSortDescriptor alloc] initWithKey:@"review" ascending:YES];
+            
+            
+            sortDescArray = [NSArray arrayWithObjects:sortDescNumber, nil];
+            
+            // ソートの実行
+            sortArray = [_listArray sortedArrayUsingDescriptors:sortDescArray];
+            
+            
+            break;
+        case 2:
+            NSLog(@"△数字が大きい順");
+            
+            sortDescNumber = [[NSSortDescriptor alloc] initWithKey:@"point" ascending:NO];
+            
+            
+            sortDescArray = [NSArray arrayWithObjects:sortDescNumber, nil];
+            
+            // ソートの実行
+            sortArray = [_listArray sortedArrayUsingDescriptors:sortDescArray];
+            
+            
+            break;
+        case 3:
+            NSLog(@"▽数字が小さい順");
+            
+            sortDescNumber = [[NSSortDescriptor alloc] initWithKey:@"point" ascending:YES];
+            
+            
+            sortDescArray = [NSArray arrayWithObjects:sortDescNumber, nil];
+            
+            // ソートの実行
+            sortArray = [_listArray sortedArrayUsingDescriptors:sortDescArray];
+            
+            
+            
+            break;
+            
+        default:
+            NSLog(@"何か押されました");
+            sortArray = _listArray;
+            
+            
+            break;
+            
+    }
+    
+    
+    _listArray = sortArray.mutableCopy;
+    
+ 
     NSArray *checkarry = _listArray.copy;
     //tmp １つずつ取り出す
     for (NSDictionary *tmp in checkarry) {
