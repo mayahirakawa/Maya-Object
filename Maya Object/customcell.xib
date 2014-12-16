@@ -54,6 +54,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="staroff.gif" width="20" height="20"/>
+        <image name="staroff.gif" width="100" height="100"/>
     </resources>
 </document>

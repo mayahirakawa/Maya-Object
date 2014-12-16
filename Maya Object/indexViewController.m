@@ -62,6 +62,8 @@
         UIImage *backgroundImage  = [UIImage imageNamed:@"bg05_03.gif"];
         self.view.backgroundColor = [UIColor colorWithPatternImage:backgroundImage];
     
+    self.tableview.backgroundColor = [UIColor clearColor];
+    
 
 
 }
@@ -372,6 +374,8 @@
     //cell.textLabel.text = @"A";
     cell.textLabel.text = [NSString stringWithFormat:@"%@",_listArray[indexPath.row][@"title"]];
     cell.review = [_listArray[indexPath.row][@"review"] integerValue];
+    
+    cell.backgroundColor = [UIColor clearColor];
     
     return cell;
 

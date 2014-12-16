@@ -28,7 +28,7 @@
 //    self.view.backgroundColor = [UIColor colorWithPatternImage:backgroundImage];
 //    
     //背景画像を設置
-    UIImage *backgroundImage  = [UIImage imageNamed:@"水玉ライムブルー.gif"];
+    UIImage *backgroundImage  = [UIImage imageNamed:@"009.gif"];
     self.view.backgroundColor = [UIColor colorWithPatternImage:backgroundImage];
     
     //textViewに黒色の枠を付ける

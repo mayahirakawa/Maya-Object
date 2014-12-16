@@ -61,13 +61,6 @@
                                     <action selector="tapother:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="bop-bu-CIH"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W0K-Jq-cDN">
-                                <rect key="frame" x="55" y="102" width="45" height="37"/>
-                                <state key="normal" image="f-f_business_76-s512_f_business_76_2bg.png"/>
-                                <connections>
-                                    <action selector="tapinformation:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="wvh-Cz-5CE"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JiY-Ca-WXy">
                                 <rect key="frame" x="55" y="147" width="90" height="75"/>
                                 <state key="normal" image="movie.png"/>
@@ -76,11 +69,18 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon_message01_welcome03.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ej4-tK-6tL">
-                                <rect key="frame" x="108" y="78" width="61" height="37"/>
+                                <rect key="frame" x="69" y="77" width="40" height="25"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="flag-garland01-01-l (1).png" translatesAutoresizingMaskIntoConstraints="NO" id="a7r-ZM-f0d">
                                 <rect key="frame" x="40" y="482" width="240" height="72"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W0K-Jq-cDN">
+                                <rect key="frame" x="22" y="95" width="45" height="37"/>
+                                <state key="normal" image="f-f_business_76-s512_f_business_76_2bg.png"/>
+                                <connections>
+                                    <action selector="tapinformation:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="wvh-Cz-5CE"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -113,7 +113,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="IqF-ro-VJP">
-                                <rect key="frame" x="0.0" y="138" width="320" height="410"/>
+                                <rect key="frame" x="0.0" y="47" width="320" height="491"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <label key="tableFooterView" opaque="NO" userInteractionEnabled="NO" alpha="0.0" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="　　　まだリストはありません" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="sQl-FL-fne" userLabel="まだリストはありません">
                                     <rect key="frame" x="0.0" y="118" width="320" height="343"/>
@@ -124,6 +124,14 @@
                                 </label>
                                 <sections/>
                             </tableView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="タイトル検索" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8ON-yQ-EHC">
+                                <rect key="frame" x="16" y="77" width="288" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="search"/>
+                                <connections>
+                                    <action selector="tapSearch:" destination="SZ9-cn-abM" eventType="editingDidEndOnExit" id="t1x-Pt-89M"/>
+                                </connections>
+                            </textField>
                             <tabBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZJp-ML-As0">
                                 <rect key="frame" x="0.0" y="519" width="320" height="49"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -132,14 +140,6 @@
                                     <tabBarItem tag="1" title="並び替え" image="three6@2x.png" id="o4d-Jw-GHg"/>
                                 </items>
                             </tabBar>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="タイトル検索" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8ON-yQ-EHC">
-                                <rect key="frame" x="16" y="107" width="288" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="search"/>
-                                <connections>
-                                    <action selector="tapSearch:" destination="SZ9-cn-abM" eventType="editingDidEndOnExit" id="t1x-Pt-89M"/>
-                                </connections>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -249,6 +249,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1hz-JC-zGH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2366" y="1344"/>
+        </scene>
+        <!--Tutorial View Controller-->
+        <scene sceneID="W7H-eP-h4l">
+            <objects>
+                <viewController storyboardIdentifier="tutorialViewController" id="osG-z3-kIx" customClass="tutorialViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ULn-dk-u42"/>
+                        <viewControllerLayoutGuide type="bottom" id="hou-EI-kRB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="c83-X2-mEX">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x8e-dn-KYU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1945" y="1342"/>
         </scene>
         <!--Newmake View Controller-->
         <scene sceneID="nNR-t8-yWu">

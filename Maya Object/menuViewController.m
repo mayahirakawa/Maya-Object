@@ -9,6 +9,7 @@
 #import "menuViewController.h"
 #import "indexViewController.h"
 #import "AppDelegate.h"
+#import "tutorialViewController.h"
 @interface menuViewController ()
 
 @end
@@ -91,6 +92,11 @@ alpha:1.000];  // バー背景色
     ivc.first_select_num = self.other.tag;
     }
 - (IBAction)tapinformation:(id)sender {
+
+    tutorialViewController *tvc = [self.storyboard instantiateViewControllerWithIdentifier:@"tutorialViewController"];
+    [[self navigationController] pushViewController:tvc animated:YES];
+
+
 }
 
 
