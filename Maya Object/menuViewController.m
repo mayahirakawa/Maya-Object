@@ -30,6 +30,7 @@
                                                         
 alpha:1.000];  // バー背景色
 
+
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 
 }
@@ -63,6 +64,8 @@ alpha:1.000];  // バー背景色
 - (IBAction)tapbook:(id)sender {
    
     indexViewController *ivc = [self.storyboard instantiateViewControllerWithIdentifier:@"indexViewController"];
+    
+          
     [[self navigationController] pushViewController:ivc animated:YES];
     ivc.first_select_num = self.book.tag;
     

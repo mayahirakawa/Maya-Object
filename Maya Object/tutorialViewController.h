@@ -8,10 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface tutorialViewController : UIViewController<UIScrollViewDelegate> {
-    UIScrollView *scrollView;
-    UIPageControl *pageControl;
-}
+@interface tutorialViewController : UIViewController<UIScrollViewDelegate>
+
+
+@property(nonatomic,strong) UIScrollView *scrollView;
+@property(nonatomic,strong) UIPageControl *pageControl;
+
+@property(nonatomic,strong) UIScrollView *canselView;
 
 
 @end

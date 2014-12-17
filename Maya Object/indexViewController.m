@@ -59,7 +59,7 @@
 //    [self.view addSubview:aView];
     
         //背景画像を設置
-        UIImage *backgroundImage  = [UIImage imageNamed:@"bg05_03.gif"];
+        UIImage *backgroundImage  = [UIImage imageNamed:@"backa.jpg"];
         self.view.backgroundColor = [UIColor colorWithPatternImage:backgroundImage];
     
     self.tableview.backgroundColor = [UIColor clearColor];
@@ -527,13 +527,12 @@ indexpath{
 }
 -(NSString *)returnBoxName:(int)boxNumber{
     NSString *boxName;
-    
-    switch (boxNumber) {
+       switch (boxNumber) {
         case 1:
             boxName = @"Movie";
             break;
             
-        case 2:
+            case 2:
             boxName = @"Book";
             break;
             

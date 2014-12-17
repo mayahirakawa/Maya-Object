@@ -16,114 +16,127 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-
-    NSInteger pageSize = 6; // ページ数
-    CGFloat width = self.view.bounds.size.width;
-    CGFloat height = self.view.bounds.size.height;
+    NSInteger pageSize = 8; // ページ数
+    CGFloat width = self.view.bounds.size.width*0.8;
+    CGFloat height = self.view.bounds.size.height*0.8;
+    
+    CGFloat margin = (self.view.bounds.size.width - width) / 2;
     
     // UIScrollViewのインスタンス化
-    scrollView = [[UIScrollView alloc]init];
-    scrollView.frame = self.view.bounds;
+    self.scrollView = [[UIScrollView alloc]init];
+    self.scrollView.backgroundColor = [UIColor whiteColor];
+    self.scrollView.frame = self.view.bounds;
     
     // 横スクロールのインジケータを非表示にする
-    scrollView.showsHorizontalScrollIndicator = NO;
+    self.scrollView.showsHorizontalScrollIndicator = NO;
     
     // ページングを有効にする
-    scrollView.pagingEnabled = YES;
-    
-    scrollView.userInteractionEnabled = YES;
-    scrollView.delegate = self;
+    self.scrollView.pagingEnabled = YES;
+    self.scrollView.userInteractionEnabled = YES;
+    self.scrollView.delegate = self;
     
     // スクロールの範囲を設定
-    [scrollView setContentSize:CGSizeMake((pageSize * width), height)];
+    [self.scrollView setContentSize:CGSizeMake((pageSize * self.view.bounds.size.width), height)];
     
     // スクロールビューを貼付ける
-    [self.view addSubview:scrollView];
+    [self.view addSubview:self.scrollView];
+    
     
     // スクロールビューにラベルを貼付ける
     for (int i = 0; i < pageSize; i++) {
-       UIImage *image = [[UILabel alloc]initWithFrame:CGRectMake(i * width, 0, width, height)];
-//        image.text = [NSString stringWithFormat:@"%d", i + 1];
-//        image.font = [UIFont fontWithName:@"Arial" size:92];
-//        image.backgroundColor = [UIColor yellowColor];
-//        image.textAlignment = UITextAlignmentCenter;
-//        [scrollView addSubview:label];
         
-//        UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(i * width, 0, width, height)];
-//        label.text = [NSString stringWithFormat:@"%d", i + 1];
-//        label.font = [UIFont fontWithName:@"Arial" size:92];
-//        label.backgroundColor = [UIColor yellowColor];
-//        label.textAlignment = UITextAlignmentCenter;
-//        [scrollView addSubview:label];
-
+        // UILabel作成
+        //        UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(i * width, 0, width, height)];
+        //        label.text = [NSString stringWithFormat:@"%d", i + 1];
+        //        label.font = [UIFont fontWithName:@"Arial" size:92];
+        //        label.backgroundColor = [UIColor yellowColor];
+        //        label.textAlignment = NSTextAlignmentCenter;
+        //        [self.scrollView addSubview:label];
+        //        NSLog(@"imagenum:%d",i);
         
+        UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"tutorial%d.png", i+1]];
+        UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+        
+        
+        if (i == 0){
+            imageView.frame = CGRectMake(i * width + margin, 0, width, height);
+        }else{
+            imageView.frame = CGRectMake(i * width + margin*((i+1)*2 - 1), 0, width, height);
+        }
+        [self.scrollView addSubview:imageView];
     }
     
     // ページコントロールのインスタンス化
     CGFloat x = (width - 300) / 2;
-    pageControl = [[UIPageControl alloc]initWithFrame:CGRectMake(x, 350, 300, 50)];
+    self.pageControl = [[UIPageControl alloc]initWithFrame:CGRectMake(x+margin+75, height+65, 150, 50)];
     
     // 背景色を設定
-    pageControl.backgroundColor = [UIColor blackColor];
+    self.pageControl.backgroundColor = [UIColor whiteColor];
     
     // ページ数を設定
-    pageControl.numberOfPages = pageSize;
+    self.pageControl.numberOfPages = pageSize;
     
     // 現在のページを設定
-    pageControl.currentPage = 0;
+    self.pageControl.currentPage = 0;
+    
+    // デフォルトの色
+    self.pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
+    // 選択されてるページを現す色
+    self.pageControl.currentPageIndicatorTintColor =  [UIColor colorWithRed:0.2 green:0.6 blue:1.0 alpha:1.0];
     
     // ページコントロールをタップされたときに呼ばれるメソッドを設定
-    pageControl.userInteractionEnabled = YES;
-    [pageControl addTarget:self
-                    action:@selector(pageControl_Tapped:)
-          forControlEvents:UIControlEventValueChanged];
+    self.pageControl.userInteractionEnabled = YES;
+    [self.pageControl addTarget:self
+                         action:@selector(pageControl_Tapped:)
+               forControlEvents:UIControlEventValueChanged];
+    
+    
+    //    //キャンセルボタン
+    UIButton *cancelButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    cancelButton.frame = CGRectMake(10, height-40, 30, 30);
+    //    [canselButton.titleLabel setFont:[UIFont systemFontOfSize:22]];
+    //    [canselButton setTitle:@"Cansel" forState:UIControlStateNormal];
+    //    [canselButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+    UIImage *img =[UIImage imageNamed:@"cancelImage"];
+    [cancelButton setImage:img forState:UIControlStateNormal];
+    [cancelButton addTarget:self action:@selector(backtoHome:)forControlEvents:UIControlEventTouchDown];
+    [self.view addSubview:cancelButton];
+    
     
     // ページコントロールを貼付ける
-    [self.view addSubview:pageControl];
-
+    [self.view addSubview:self.pageControl];
     
-    
-
 }
 
-/**
- * スクロールビューがスワイプされたとき
- * @attention UIScrollViewのデリゲートメソッド
- */
+
+// スクロールビューがスワイプされたとき
 - (void)scrollViewDidScroll:(UIScrollView *)_scrollView
 {
-    CGFloat pageWidth = scrollView.frame.size.width;
-    if ((NSInteger)fmod(scrollView.contentOffset.x , pageWidth) == 0) {
+    CGFloat pageWidth = self.scrollView.frame.size.width;
+    if ((NSInteger)fmod(self.scrollView.contentOffset.x , pageWidth) == 0) {
         // ページコントロールに現在のページを設定
-        pageControl.currentPage = scrollView.contentOffset.x / pageWidth;
+        self.pageControl.currentPage = self.scrollView.contentOffset.x / pageWidth;
     }
 }
 
-/**
- * ページコントロールがタップされたとき
- */
+// ページコントロールがタップされたとき
 - (void)pageControl_Tapped:(id)sender
 {
-    CGRect frame = scrollView.frame;
-    frame.origin.x = frame.size.width * pageControl.currentPage;
-    [scrollView scrollRectToVisible:frame animated:YES];
+    CGRect frame = self.scrollView.frame;
+    frame.origin.x = frame.size.width * self.pageControl.currentPage;
+    [self.scrollView scrollRectToVisible:frame animated:YES];
 }
 
+
+-(void)backtoHome:(UIButton*)cancelButton{
+    NSLog(@"%@",cancelButton);
+    //modalを閉じる
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
