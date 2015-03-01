@@ -761,7 +761,7 @@
 				INFOPLIST_FILE = "Maya Object/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d473f02c-909f-4327-97b1-05df3bb2ec72";
+				PROVISIONING_PROFILE = "b5478d6f-93bd-42aa-972d-bbb1f20154ac";
 			};
 			name = Debug;
 		};
@@ -773,7 +773,7 @@
 				INFOPLIST_FILE = "Maya Object/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d473f02c-909f-4327-97b1-05df3bb2ec72";
+				PROVISIONING_PROFILE = "b5478d6f-93bd-42aa-972d-bbb1f20154ac";
 			};
 			name = Release;
 		};
